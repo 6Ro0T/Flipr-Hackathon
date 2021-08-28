@@ -31,7 +31,7 @@
         <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b>DASH<span>BOARD</span></b></a>
+      <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -45,7 +45,6 @@
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><img src="img/ui-sam.jpg" class="img-circle" width="80"></p>
-          <h5 class="centered">Username</h5>
           <li class="mt">
             <a class="active" href="dashboard.php">
               <i class="fa fa-dashboard"></i>
