@@ -50,15 +50,18 @@ if(isset($_POST['register'])){
     <!-- Core css -->
 </head>
 <body class="font-muli theme-cyan gradient">
-<form action="register.php" method="Post">
+    <header class="header black-bg">
+        <div class="text-center">
+                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
+                    <div class="card-title mt-3"> Registration </div>    
+                </div>
+    </header>
+<form action="register.php" method="Post" style="margin-top: 100px;">
 
     <div class="row">
         <div class="col-md-5 offset-md-4">
             <div class="card-body">
-                <div class="text-center">
-                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
-                    <div class="card-title mt-3"> Registration </div>    
-                </div>
+                
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"name="email" required/>
                 </div>
