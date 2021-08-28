@@ -13,21 +13,31 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 <!-- Core css -->
+<link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Bootstrap core CSS -->
+  <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="lib/gritter/css/jquery.gritter.css" />
+  <!-- Custom styles for this template -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/style-responsive.css" rel="stylesheet">
 
 </head>
 <body class="font-muli theme-cyan gradient">
-
-
-    <div class="row">
-        <div class="col-md-5 offset-md-4">
-            <div class="card-body">
-            <form action="index.php" method="Post">
-                <div class="text-center">
-                    <a class="header-brand" href="../index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
+  <header class="header black-bg">
+    <div class="text-center">
+                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
                     <div class="card-title mt-3"> Login</div>
                     
                 </div>
+  </header>
+    <div class="row">
+        <div class="col-md-5 offset-md-4">
+            <div class="card-body">
+            <form action="index.php" method="Post" style="margin-top: 80px;">
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"name="email" required>
                 </div>

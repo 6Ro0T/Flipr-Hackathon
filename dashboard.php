@@ -26,10 +26,9 @@
 
 <body>
   <section id="container">
-
     <header class="header black-bg">
       <div class="sidebar-toggle-box">
-        <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div>
+        <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
       <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
@@ -41,10 +40,7 @@
         </ul>
       </div>
     </header>
-<<<<<<< Updated upstream:dashboard.php
-=======
 
->>>>>>> Stashed changes:dashboard1.php
     <aside>
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
@@ -136,7 +132,6 @@
   <!--script for this page-->
   <script src="lib/sparkline-chart.js"></script>
   <script src="lib/zabuto_calendar.js"></script>
-<<<<<<< Updated upstream:dashboard.php
   <script type="text/javascript">
     function display() {
     var x = new Date()
@@ -152,11 +147,7 @@
     var refresh=1000; // Refresh rate in milli seconds
     mytime=setTimeout('display()',refresh)
     }
-    display_time()
-=======
-  <script type="application/javascript">
-    
->>>>>>> Stashed changes:dashboard1.php
+    display_time();
   </script>
 </body>
 
