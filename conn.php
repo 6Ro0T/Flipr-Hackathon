@@ -1,6 +1,6 @@
 <?php
 
-$conn = new mysqli('localhost', 'root', '', 'ncc');
+$conn = new mysqli('localhost', 'root', '', 'flipr');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

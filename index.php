@@ -33,12 +33,9 @@
                 <div class="form-group">
                     
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"name="passwd" required>
-                    <label class="form-label"><a href="forgot-password.html" class="float-right small">I forgot password</a></label>
                 </div>
                 <div class="form-group">
-                    <label class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" />
-                    <span class="custom-control-label">Remember me</span>
+                   
                     </label>
                 </div>
                 <div class="text-center">
@@ -49,12 +46,25 @@
 						echo "Incorrect username or password";
 }       			?>
                 </div>
-				
+                
+				</form>
+                <div class="text-center">
+                <span>Or</span>
+                </div>
+                <div class="text-center">
+                 <button class="btn btn-primary btn-block" >
+                 
+                 Sign With Google
+                 </button>
+            
+               
+                </div>
             </div>
-        </div>        
+        </div>
+                      
     </div>
 
-</form>
+
 
 <?php
 
@@ -66,33 +76,31 @@
       
       $myusername = mysqli_real_escape_string($conn,$_POST['email']);
       $passwd=$_POST['passwd'];
-      $mypassword=hash('sha256',$passwd );
-      echo $mypassword;
+      //$mypassword=hash('sha256',$passwd );
+      //echo $mypassword;
       
-      $sql = "SELECT email FROM student WHERE email = '$myusername' and password = '$mypassword'";
+      $sql = "SELECT email FROM student WHERE email = '$myusername' and password = '$passwd'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result);
       $count = mysqli_num_rows($result);
       
       // If result matched $myusername and $mypassword, table row must be 1 row
-      $sql1="select division from student where email='$myusername'";
+      $sql1="select * from student where email='$myusername'";
       $result1=mysqli_query($conn,$sql1);
       $row1=mysqli_fetch_array($result1);
       $value=$row1["division"];
       if($count == 1) {
          //session_register("username");
-         $_SESSION['login_user'] = $myusername;
-         $_SESSION['role']=$value;
-         if($value=='navy'){
+         $_SESSION['email'] = $myusername;
+         $_SESSION['division']=$value;
+         if($value=='student'){
          
-            header("location: navy/navy.php");
+            header("location: student/index.php");
          }
-         elseif($value=='army'){
-             header("location: army/army.php");
+         elseif($value=='teacher'){
+             header("location: teacher/index.php");
          }
-         elseif($value=='airforce'){
-             header("location: /airforce/airforce.php");
-         }
+
       }else {
            header("location:index.php?msg=failed");
 		 
