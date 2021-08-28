@@ -58,6 +58,16 @@
                         }
                     }
                 </script>
+                <div class="form-group" style="margin-left: 30%;">
+                    <input type="radio" name="teacher" id="teacher" class="form-check-input" style="height: 20px; width: 20px;">
+                        <label class="form-check-label" style="margin-left: 10px; font-size: 15px;">Teacher</label>
+                    </input>
+                </div>
+                <div class="form-group" style="margin-left: 30%;">
+                    <input type="radio" name="student" id="student" class="form-check-input" style="height: 20px; width: 20px;">
+                        <label class="form-check-label" style="margin-left: 10px; font-size: 15px;">Student</label>
+                    </input>
+                </div>
                 <div class="text-center">
                     <button class="btn btn-primary btn-block" title="">Register</button>
                 </div>	
