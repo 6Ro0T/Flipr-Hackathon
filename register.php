@@ -1,3 +1,36 @@
+<?php 
+include('conn.php');
+$flag=0;
+$count=0;
+if(isset($_POST['register'])){
+        $email=$_POST['email'];
+        $passwd1=mysqli_real_escape_string($conn,$_POST['passwd1']);
+        $passwd2=mysqli_real_escape_string($conn,$_POST['passwd2']);
+        $division=mysqli_real_escape_string($conn,$_POST['division']);
+        $newpass1=hash('sha256',$passwd1);
+        $newpass2=hash('sha256',$passwd1);
+        if(!empty($email) || !empty($passwd1) || !empty($email) || !empty($email)){
+            $sql="SELECT * FROM `student` WHERE email='$email'";
+            $check=mysqli_query($conn,$sql);
+            $row=mysqli_fetch_array($check);
+     
+            $count = mysqli_num_rows($check);
+            
+            if($count==0){
+                $sql1="INSERT INTO `student`(`email`, `password`, `password1`, `division`) VALUES ('$email','$newpass1','$newpass2','$division')";
+                $result=mysqli_query($conn,$sql1);
+                if($result)
+                    $flag=1;
+            }
+            
+                
+            
+        }
+        else
+            echo" Empty values";
+        
+}
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -17,7 +50,7 @@
     <!-- Core css -->
 </head>
 <body class="font-muli theme-cyan gradient">
-<form action="#" method="Post">
+<form action="register.php" method="Post">
 
     <div class="row">
         <div class="col-md-5 offset-md-4">
@@ -36,7 +69,17 @@
                     <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" name="passwd2" required/>
                 </div>
                 <div class="form-group">
-                    <p id="validate-status" class="form-control"></p>
+                    <p id="validate-status" ></p>
+                </div>
+                <div class="">
+                 <label for="cars" >Choose a Module:</label>
+
+                <select name="division"  required >
+                <option >Select</option>
+                <option value="teacher" >Teacher</option>
+                <option value="student">Student</option>
+                
+                </select> 
                 </div>
                 <script type="text/javascript">
                     $(document).ready(function(){
@@ -59,7 +102,19 @@
                     }
                 </script>
                 <div class="text-center">
-                    <button class="btn btn-primary btn-block" title="">Register</button>
+                <?php if($flag) {?>
+                    <div class="alert alert-success">
+                    <Strong>Registered Successfully</strong>
+                    </div>
+                <?php } ?>
+                <?php if($count) {?>
+                <div class="alert alert-danger">
+                <Strong>Already Registered</strong>
+                </div>
+                <?php } ?>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-block" type="submit" name='register'>Register</button>
                 </div>	
             </div>
         </div>        
