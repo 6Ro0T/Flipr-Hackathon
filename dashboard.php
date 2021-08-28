@@ -114,8 +114,33 @@
       </div>
     </aside>
    
+    <section id="main-content">
+      <section class="wrapper">
+        <div class="row mt">
+          <div class="col-lg-6 col-md-6 col-sm-6">
+            
+            <div class="card">
+              <div class="text-center"><h4><i class="tx-medium"></i>Classes enrolled</h4></div>
+              <h4><i class="text-center"></i>Class NAME</h4>
+              <h4><i class="text-center"></i>Lecture name</h4>
+              <div class="table-responsive">
+              <table class="table table-striped table-vcenter mb-0">
+               <tbody>
+              <tr>
+               <td class="w20"><i class="fa fa-calendar text-blue"></i></td>
+             
+              <td class="text-right">23</td>
+              </tr>
+              </table>
+              </div>
+              
+            </div>
+        </div>
+        <!--/ row -->
+      </section>
+      
     </section>
-    <!--main content end-->
+    
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="lib/jquery/jquery.min.js"></script>
@@ -132,22 +157,9 @@
   <!--script for this page-->
   <script src="lib/sparkline-chart.js"></script>
   <script src="lib/zabuto_calendar.js"></script>
+<<<<<<< Updated upstream
   <script type="text/javascript">
-    function display() {
-    var x = new Date()
-    var ampm = x.getHours( ) >= 12 ? ' PM' : ' AM';
-    hours = x.getHours( ) % 12;
-    hours = hours ? hours : 12;
-    var x1=x.getMonth() + 1+ "/" + x.getDate() + "/" + x.getFullYear(); 
-    x1 = x1 + " - " +  hours + ":" +  x.getMinutes() + ":" +  x.getSeconds() + ":" + ampm;
-    document.getElementById('date-time').innerHTML = x1;
-    display_time();
-     }
-     function display_time(){
-    var refresh=1000; // Refresh rate in milli seconds
-    mytime=setTimeout('display()',refresh)
-    }
-    display_time();
+
   </script>
 </body>
 
