@@ -17,11 +17,12 @@
 
 </head>
 <body class="font-muli theme-cyan gradient">
-<form action="index.php" method="Post">
+
 
     <div class="row">
         <div class="col-md-5 offset-md-4">
             <div class="card-body">
+            <form action="index.php" method="Post">
                 <div class="text-center">
                     <a class="header-brand" href="../index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
                     <div class="card-title mt-3"> Login</div>
@@ -49,16 +50,21 @@
                 
 				</form>
                 <div class="text-center">
+               
+                <div>
+                <a href="register.php">Don't Have An Account?</a>
+                
+                </div>
                 <span>Or</span>
                 </div>
-                <div class="text-center">
-                 <button class="btn btn-primary btn-block" >
                  
-                 Sign With Google
-                 </button>
-            
+                <div class=" ">
+                <a href="google.php" class="btn btn-primary btn-block" >
+                 Sign in With Google
+               </a>
+               </div>
                
-                </div>
+                
             </div>
         </div>
                       
