@@ -1,15 +1,12 @@
 <?php
 include('session.php');
 include('../conn.php');
-$count=0;
+
 $sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
-$sql1="select * from create_class where tea_name='$user_check'";
-$result1=mysqli_query($conn,$sql1);
-$count=mysqli_num_rows($result1);
-if($count==0)
-    $count=1;
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,19 +130,23 @@ if($count==0)
             <div class="">
             <a href='create_class.php' class="btn btn-primary">Create Class</a>
             </div>
-            
-            <?php if ($count){
+            <?php
+            $count=0;
+            $sql1="select * from create_class where tea_name='$user_check'";
+            $result1=mysqli_query($conn,$sql1);
+            $count=mysqli_num_rows($result1);
+            if($count){
               while($row1=mysqli_fetch_array($result1)){  
-            ?>
+              ?>
             <div class="card">
               <div class="text-center"><h4><i class="tx-medium"></i></h4></div>
               <h4><i class="text-center"></i><?php echo $row1['class_name']?></h4>
               <h4><i class="text-center"></i><?php echo $row1['tea_name']?></h4>
               </div>
-              <?php }}else{?>
+              <?php }}else {?>
             
-            <div class="">
-            <h4><i class="text-center">Class Not Found</i></h4>
+            <div class="card">
+            <h4><i class="text-center">Add a class to appear here</i></h4>
             </div>
             
             <?php }?>
