@@ -95,10 +95,10 @@
       
       $myusername = mysqli_real_escape_string($conn,$_POST['email']);
       $passwd=$_POST['passwd'];
-      //$mypassword=hash('sha256',$passwd );
+      $mypassword=hash('sha256',$passwd );
       //echo $mypassword;
       
-      $sql = "SELECT email FROM student WHERE email = '$myusername' and password = '$passwd'";
+      $sql = "SELECT email FROM student WHERE email = '$myusername' and password = '$mypassword'";
       $result = mysqli_query($conn,$sql);
       $row = mysqli_fetch_array($result);
       $count = mysqli_num_rows($result);
