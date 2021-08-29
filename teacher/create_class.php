@@ -9,7 +9,7 @@ $row=mysqli_fetch_array($result);
 include('../conn.php');
 if(isset($_POST['create_class'])){
         $cname=mysqli_real_escape_string($conn,$_POST['cname']);
-        $subject=mysqli_real_escape_string($conn,$_POST[['subject']);
+        $subject=mysqli_real_escape_string($conn,$_POST['subject']);
         $section=mysqli_real_escape_string($conn,$_POST['section']);
         $room=mysqli_real_escape_string($conn,$_POST['room']);
         if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
@@ -86,10 +86,8 @@ if(isset($_POST['create_class'])){
               <span>Task</span>
               </a>
             <ul class="sub">
-              <li><a href="#">Assignments</a></li>
-              <li><a href="#">Class test</a></li>
-              <li><a href="#">Presentation</a></li>
-              <li><a href="#">Small Quiz</a></li>
+              <li><a href="assignment.php">Assignments</a></li>
+              <li><a href="quiz.php">Small Quiz</a></li>
             </ul>
           </li>
           <li class="sub-menu">

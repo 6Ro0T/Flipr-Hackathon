@@ -74,12 +74,6 @@ $row=mysqli_fetch_array($result);
 
               <li><a href="assignment.php">Assignments</a></li>
               <li><a href="quiz.php">Small Quiz</a></li>
-
-              <li><a href="#">Assignments</a></li>
-              <li><a href="#">Class test</a></li>
-              <li><a href="#">Presentation</a></li>
-              <li><a href="#">Small Quiz</a></li>
-
             </ul>
           </li>
           <li class="sub-menu">
