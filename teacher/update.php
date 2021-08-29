@@ -1,22 +1,11 @@
 <?php
 include('session.php');
 include('../conn.php');
-
 $sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
-<?php
-$flag=0;
 
-if(isset($_POST['delete'])){
-    $delete=mysqli_real_escape_string($conn,$_POST['delete']);
-    $sql2="DELETE FROM `create_class` WHERE id='$delete'";
-    $result3=mysqli_query($conn,$sql2);
-    if($result3)
-        $flag=1;
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +30,6 @@ if(isset($_POST['delete'])){
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-
-  <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/style-responsive.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -54,7 +39,7 @@ if(isset($_POST['delete'])){
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['name'];?></b></a>
+      <a href="index.php" class="logo"><b><?php echo $row['name'];?></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -68,11 +53,9 @@ if(isset($_POST['delete'])){
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-
-          <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
-
+          <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
-            <a class="active" href="dashboard.php">
+            <a class="active" href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -83,7 +66,6 @@ if(isset($_POST['delete'])){
               <span>Task</span>
               </a>
             <ul class="sub">
-
               <li><a href="assignment.php">Assignments</a></li>
               <li><a href="quiz.php">Small Quiz</a></li>
             </ul>
@@ -135,48 +117,60 @@ if(isset($_POST['delete'])){
     <section id="main-content">
       <section class="wrapper">
         <div class="row mt">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="">
-            <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
-            <?php if($flag) {?>
+          <div class="col-lg-10 col-md-6 col-sm-6">
+            
+            <div class=" mt ">
+              <form method="POST" action="create_class.php">
+              <div class="form-group">
+              <?php if($flag) {?>
                     <div class="alert alert-success">
-                    <Strong script="alert(1);">Deleted Successfully</strong>
+                    <Strong script="alert(1);">Registered Successfully</strong>
                     </div>
                 <?php } ?>
-            <?php
-            $count=0;
-            $sql1="select * from create_class,student where tea_name=email and tea_name='$user_check'";
-            $result1=mysqli_query($conn,$sql1);
-            $count=mysqli_num_rows($result1);
-            if($count){
-              while($row1=mysqli_fetch_array($result1)){  
-              ?>
-            <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i></h4></div>
-              
-              <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
-              <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-              <table style="width:100px">
-              <tbody >
-              <tr>
-              <td><form action="view.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye"></i>View</button></form></td>
-              <td><form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o">Update</i></button></form></td>
-              <td><form action="index.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o text-danger"></i>Delete</button></form></td>
-              </tr>
-              </tbody>
-               </table>
+				<?php
+				
+				$update=$_POST['update'];
+				$sql1="select * from create_class where id ='$update'";
+				$result1=mysqli_query($conn,$sql1);
+				$row1=mysqli_fetch_array($result1);
+				
+				?>
+              <div class="row mt">
+              </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Course Name <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" value="<?php echo $row1['class_name'];?>" required>
+                  <input type="hidden" value="<?php echo $row['email'];?>" name="email">
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Subject<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="subject" value="<?php echo $row1['subject'];?>" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Section<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="section" value="<?php echo $row1['section'];?>" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Room <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="room" value="<?php echo $row1['room'];?>" required>
+                  </div>
+                </div>
+				<?php  ?>
+                <div class="row mt">
+                <div class="text-center">
+                <button class="btn btn-primary" name="create_class">Update</button>
+                </div>
+                </div>
+              </div>
+              </form>
             </div>
-              <?php }}else {?>
-            
-            <div class="card">
-            <h4><i class="text-center">Add a class to appear here</i></h4>
-            </div>
-            
-            <?php }?>
-            
-        
-        </div>
         </div>
         <!--/ row -->
       </section>
