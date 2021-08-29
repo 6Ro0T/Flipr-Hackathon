@@ -114,11 +114,44 @@ include('session.php')
     <section id="main-content">
       <section class="wrapper">
         <div class="row mt">
-          <div class="col-lg-6 col-md-6 col-sm-6">
+          <div class="col-lg-10 col-md-6 col-sm-6">
             
-            <div class="card">
-              
-              
+            <div class=" mt ">
+              <form method="POST" action="create_class.php">
+              <div class="form-group">
+              <div class="row mt">
+              </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Course Name <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Subject<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Section<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Room <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                <div class="text-center">
+                <button class="btn btn-primary">Submit</button>
+                </div>
+                </div>
+              </div>
+              </form>
             </div>
         </div>
         <!--/ row -->
