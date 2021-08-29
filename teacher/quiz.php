@@ -62,7 +62,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
-            <a class="active" href="dashboard.php">
+            <a href="dashboard.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -73,10 +73,8 @@
               <span>Task</span>
               </a>
             <ul class="sub">
-              <li><a href="#">Assignments</a></li>
-              <li><a href="#">Class test</a></li>
-              <li><a href="#">Presentation</a></li>
-              <li><a href="#">Small Quiz</a></li>
+              <li><a href="assignment.php">Assignments</a></li>
+              <li><a href="quiz.php">Small Quiz</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -127,6 +125,7 @@
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
+            <h1>SMALL QUIZ</h1>
             <form action="#" method="get">
               <label class="text-right" >Choose Number of Questions:</label>
               <select id="numbers">
@@ -170,6 +169,11 @@
                   document.getElementById('questions').innerHTML = "";
                 }
               </script>
+              <div class="col-md-5 offset 4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                </svg>
+                <label>Select the Due Date: <input class="form-control" type="date" name="datetime"/></label>
+              </div>
               <button type="button" class="btn btn-primary btn-lg btn-block">Generate Quiz</button>
             </form>
         </div>

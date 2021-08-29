@@ -64,7 +64,9 @@ if(isset($_POST['register'])){
     <div class="row">
         <div class="col-md-5 offset-md-4">
             <div class="card-body">
-                
+                <div class="form-group">
+                    <input type="text" class="form-control" id="uname" placeholder="Enter Username" name="uname" required>
+                </div>
                 <div class="form-group">
                     <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"name="email" required/>
                 </div>
