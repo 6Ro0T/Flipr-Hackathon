@@ -27,9 +27,11 @@
 
 </head>
 <body class="font-muli theme-cyan gradient">
-  <header class="header black-bg" style="height: 85px;">
-    <div class="text-center">
-                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px; margin-top: 10px;"></i></a>
+
+  <header class="header black-bg">
+    <div class="col-md-5 offset-md-6">
+                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
+
                     <div class="card-title mt-3"> Login</div>
                     
                 </div>
@@ -70,7 +72,8 @@
                  
                 <div class=" ">
                 <a href="google.php" class="btn btn-primary btn-block" >
-                 Sign in With Google
+                 <i class="fa fa-google" aria-hidden="true"></i>&nbsp Sign in With Google
+
                </a>
                </div>
                
