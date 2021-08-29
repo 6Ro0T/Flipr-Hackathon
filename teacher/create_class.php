@@ -1,9 +1,5 @@
 <?php
-include('session.php');
-include('../conn.php');
-$sql="select email from student where email='$user_check' and division='$user_role'";
-$result=mysqli_query($conn,$sql);
-$row=mysqli_fetch_array($result);
+include('session.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +34,7 @@ $row=mysqli_fetch_array($result);
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['email'];?></b></a>
+      <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -119,22 +115,10 @@ $row=mysqli_fetch_array($result);
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="">
-            <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
+            
             <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i>Classes enrolled</h4></div>
-              <h4><i class="text-center"></i>Class NAME</h4>
-              <h4><i class="text-center"></i>Lecture name</h4>
-              <div class="table-responsive">
-              <table class="table table-striped table-vcenter mb-0">
-               <tbody>
-              <tr>
-               <td class="w20"><i class="fa fa-calendar text-blue"></i></td>
-              <td class="text-right">23</td>
-              </tr>
-              </table>
-              </div
+              
+              
             </div>
         </div>
         <!--/ row -->
