@@ -1,9 +1,15 @@
 <?php
 include('session.php');
 include('../conn.php');
-$sql="select email from student where email='$user_check' and division='$user_role'";
+$count=0;
+$sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
+$sql1="select * from create_class where tea_name='$user_check'";
+$result1=mysqli_query($conn,$sql1);
+$count=mysqli_num_rows($result1);
+if($count==0)
+    $count=1;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +48,7 @@ $row=mysqli_fetch_array($result);
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['email'];?></b></a>
+      <a href="dashboard.php" class="logo"><b><?php echo $row['name'];?></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -127,20 +133,25 @@ $row=mysqli_fetch_array($result);
             <div class="">
             <a href='create_class.php' class="btn btn-primary">Create Class</a>
             </div>
+            
+            <?php if ($count){
+              while($row1=mysqli_fetch_array($result1)){  
+            ?>
             <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i>Classes enrolled</h4></div>
-              <h4><i class="text-center"></i>Class NAME</h4>
-              <h4><i class="text-center"></i>Lecture name</h4>
-              <div class="table-responsive">
-              <table class="table table-striped table-vcenter mb-0">
-               <tbody>
-              <tr>
-               <td class="w20"><i class="fa fa-calendar text-blue"></i></td>
-              <td class="text-right">23</td>
-              </tr>
-              </table>
-              </div
+              <div class="text-center"><h4><i class="tx-medium"></i></h4></div>
+              <h4><i class="text-center"></i><?php echo $row1['class_name']?></h4>
+              <h4><i class="text-center"></i><?php echo $row1['tea_name']?></h4>
+              </div>
+              <?php }}else{?>
+            
+            <div class="">
+            <h4><i class="text-center">Class Not Found</i></h4>
             </div>
+            
+            <?php }?>
+            
+        
+        </div>
         </div>
         <!--/ row -->
       </section>

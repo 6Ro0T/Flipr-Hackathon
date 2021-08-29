@@ -1,11 +1,12 @@
 <?php
 include('session.php');
 include('../conn.php');
-$sql="select email from student where email='$user_check' and division='$user_role'";
+$sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
 <?php
+$flag=0;
 include('../conn.php');
 if(isset($_POST['create_class'])){
         $email=mysqli_real_escape_string($conn,$_POST['email']);
@@ -14,7 +15,7 @@ if(isset($_POST['create_class'])){
         $section=mysqli_real_escape_string($conn,$_POST['section']);
         $room=mysqli_real_escape_string($conn,$_POST['room']);
         if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
-                $sql1="INSERT INTO `student`(`email`, `password`, `password1`, `division`) VALUES ('$email','$newpass1','$newpass2','$division')";
+                $sql1="INSERT INTO `create_class`(`tea_name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$cname','$subject','$section','$room')";
                 $result=mysqli_query($conn,$sql1);
                 if($result)
                     $flag=1;
@@ -60,7 +61,7 @@ if(isset($_POST['create_class'])){
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['email'];?></b></a>
+      <a href="index.php" class="logo"><b><?php echo $row['name'];?></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -76,7 +77,7 @@ if(isset($_POST['create_class'])){
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
-            <a class="active" href="dashboard.php">
+            <a class="active" href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -143,12 +144,18 @@ if(isset($_POST['create_class'])){
             <div class=" mt ">
               <form method="POST" action="create_class.php">
               <div class="form-group">
+              <?php if($flag) {?>
+                    <div class="alert alert-success">
+                    <Strong script="alert(1);">Registered Successfully</strong>
+                    </div>
+                <?php } ?>
               <div class="row mt">
               </div>
                 <div class="row mt">
                   <label class="col-md-2 col-form-label">Course Name <span class="text-danger">*</span></label>
                   <div class="col-md-6">
                   <input type="text" class="form-control"name="cname" required>
+                  <input type="hidden" value="<?php echo $row['email'];?>" name="email">
                   </div>
                 </div>
                 <div class="row mt">

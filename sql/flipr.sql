@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 28, 2021 at 05:59 PM
+-- Generation Time: Aug 29, 2021 at 02:32 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -25,14 +25,38 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `create_class`
+--
+
+CREATE TABLE `create_class` (
+  `id` int(11) NOT NULL,
+  `tea_name` varchar(30) NOT NULL,
+  `class_name` varchar(255) NOT NULL,
+  `subject` varchar(100) NOT NULL,
+  `section` varchar(10) NOT NULL,
+  `room` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `create_class`
+--
+
+INSERT INTO `create_class` (`id`, `tea_name`, `class_name`, `subject`, `section`, `room`) VALUES
+(1, 'ranjith@mail.com', 'Embed Iframe in PHP', 'Spoof Test bY Groot', 'A', '101'),
+(2, 'ranjith@mail.com', 'Embed Iframe in PHP', 'Spoof Test bY Groot', 'A', '101');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
 CREATE TABLE `student` (
   `id` int(10) NOT NULL,
+  `name` varchar(25) NOT NULL,
   `email` varchar(20) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `password1` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `password1` varchar(255) NOT NULL,
   `division` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -40,9 +64,8 @@ CREATE TABLE `student` (
 -- Dumping data for table `student`
 --
 
-INSERT INTO `student` (`id`, `email`, `password`, `password1`, `division`) VALUES
-(1, 'teacher@test.com', '12345', '12345', 'teacher'),
-(2, 'student@test.com', '123456', '123456', 'student');
+INSERT INTO `student` (`id`, `name`, `email`, `password`, `password1`, `division`) VALUES
+(10, 'Ranjith', 'ranjith@mail.com', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'teacher');
 
 -- --------------------------------------------------------
 
@@ -69,6 +92,12 @@ CREATE TABLE `users` (
 --
 
 --
+-- Indexes for table `create_class`
+--
+ALTER TABLE `create_class`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
@@ -85,10 +114,16 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `create_class`
+--
+ALTER TABLE `create_class`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `users`

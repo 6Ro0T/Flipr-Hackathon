@@ -3,7 +3,8 @@ include('conn.php');
 $flag=0;
 $count=0;
 if(isset($_POST['register'])){
-        $email=$_POST['email'];
+        $name=mysqli_real_escape_string($conn,$_POST['uname']);
+        $email=mysqli_real_escape_string($conn,$_POST['email']);
         $passwd1=mysqli_real_escape_string($conn,$_POST['passwd1']);
         $passwd2=mysqli_real_escape_string($conn,$_POST['passwd2']);
         $division=mysqli_real_escape_string($conn,$_POST['division']);
@@ -17,7 +18,7 @@ if(isset($_POST['register'])){
             $count = mysqli_num_rows($check);
             
             if($count==0){
-                $sql1="INSERT INTO `student`(`email`, `password`, `password1`, `division`) VALUES ('$email','$newpass1','$newpass2','$division')";
+                $sql1="INSERT INTO `student`(`name`,`email`, `password`, `password1`, `division`) VALUES ('$name','$email','$newpass1','$newpass2','$division')";
                 $result=mysqli_query($conn,$sql1);
                 if($result)
                     $flag=1;
