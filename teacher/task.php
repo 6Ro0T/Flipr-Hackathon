@@ -7,10 +7,10 @@
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashboard</title>
+  <title>Teacher's Dashboard</title>
 
   <!-- Favicons -->
-  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -19,14 +19,24 @@
   <link rel="stylesheet" type="text/css" href="../css/zabuto_calendar.css">
   <link rel="stylesheet" type="text/css" href="../lib/gritter/css/jquery.gritter.css" />
   <!-- Custom styles for this template -->
-<<<<<<< Updated upstream
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-=======
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/style-responsive.css" rel="stylesheet">
->>>>>>> Stashed changes
+  <style type="text/css">
+    /*adding style to quiz buttons*/
+    #quiz{
+      background-color: lightblue;
+      border-radius: 5px;
+      border: 1px solid red;
+      padding: 10px;
+      font-size: 20px;
+    }
+    #quiz:hover{
+      cursor: pointer;
+      background-color: blue;
+      border: 1px solid orange;
+    }
+  </style>
 </head>
 
 <body>
@@ -50,11 +60,7 @@
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-<<<<<<< Updated upstream
           <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
-=======
-          <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
->>>>>>> Stashed changes
           <li class="mt">
             <a class="active" href="dashboard.php">
               <i class="fa fa-dashboard"></i>
@@ -70,7 +76,7 @@
               <li><a href="#">Assignments</a></li>
               <li><a href="#">Class test</a></li>
               <li><a href="#">Presentation</a></li>
-              <li><a href="task.php">Small Quiz</a></li>
+              <li><a href="#">Small Quiz</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -121,23 +127,42 @@
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            
-            <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i>Classes enrolled</h4></div>
-              <h4><i class="text-center"></i>Class NAME</h4>
-              <h4><i class="text-center"></i>Lecture name</h4>
-              <div class="table-responsive">
-              <table class="table table-striped table-vcenter mb-0">
-               <tbody>
-              <tr>
-               <td class="w20"><i class="fa fa-calendar text-blue"></i></td>
-             
-              <td class="text-right">23</td>
-              </tr>
-              </table>
-              </div>
-              
-            </div>
+            <form action="#" method="post">
+              Number of Questions in the quiz:
+              <select id="numbers">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option selected>10</option>
+              <option>11</option>
+              <option>12</option>
+              <option>13</option>
+              <option>14</option>
+              <option>15</option>
+              </select>
+              <input onclick="getQuestion();" value="Quiz Area" id="quiz" />
+              <button onclick="clear();">Clear Quiz</button>  
+              <div id="questions"></div>
+              <script type="text/javascript">
+                function getQuestion(){
+                  const select = document.getElementById('numbers');
+                  var value = select.options[select.selectedIndex].value;
+                  for(let i=1; i<=value; i++){
+                    document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>1. <input type='text' name='"+i+"option1' placeholder='Option 1' size=70><br>2. <input type='text' placeholder='Option 2' name='"+i+"option2' size='70'><br>3. <input type='text' placeholder='Option 3' name='"+i+"option3' size=70><br>4. <input type='text' placeholder='Option 4' name='"+i+"option4' size=70><br>Correct Answer: <input type='text' placeholder='Correct Option' name='"+i+"correct' size=70><br><br>";
+                  }
+                }
+
+                function clear(){
+                  document.getElementById('questions').innerHTML = "";
+                }
+              </script>
+            </form>
         </div>
         <!--/ row -->
       </section>
