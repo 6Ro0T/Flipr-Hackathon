@@ -72,7 +72,7 @@
                  
                 <div class=" ">
                 <a href="google.php" class="btn btn-primary btn-block" >
-                 <i class="fa fa-google" aria-hidden="true"></i>&nbsp Sign in With Google
+                 <i class="fa fa-google"></i>&nbsp Sign in With Google
 
                </a>
                </div>
