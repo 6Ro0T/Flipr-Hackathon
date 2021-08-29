@@ -1,9 +1,5 @@
 <?php
-include('session.php');
-include('../conn.php');
-$sql="select email from student where email='$user_check' and division='$user_role'";
-$result=mysqli_query($conn,$sql);
-$row=mysqli_fetch_array($result);
+include('session.php')
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,11 +25,6 @@ $row=mysqli_fetch_array($result);
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-<<<<<<< HEAD
-  <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/style-responsive.css" rel="stylesheet">
-=======
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
 </head>
 
 <body>
@@ -43,7 +34,7 @@ $row=mysqli_fetch_array($result);
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['email'];?></b></a>
+      <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -57,11 +48,7 @@ $row=mysqli_fetch_array($result);
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-<<<<<<< HEAD
-          <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
-=======
           <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
           <li class="mt">
             <a class="active" href="dashboard.php">
               <i class="fa fa-dashboard"></i>
@@ -74,15 +61,10 @@ $row=mysqli_fetch_array($result);
               <span>Task</span>
               </a>
             <ul class="sub">
-<<<<<<< HEAD
-              <li><a href="assignment.php">Assignments</a></li>
-              <li><a href="quiz.php">Small Quiz</a></li>
-=======
               <li><a href="#">Assignments</a></li>
               <li><a href="#">Class test</a></li>
               <li><a href="#">Presentation</a></li>
               <li><a href="#">Small Quiz</a></li>
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
             </ul>
           </li>
           <li class="sub-menu">
@@ -132,23 +114,44 @@ $row=mysqli_fetch_array($result);
     <section id="main-content">
       <section class="wrapper">
         <div class="row mt">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="">
-            <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
-            <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i>Classes enrolled</h4></div>
-              <h4><i class="text-center"></i>Class NAME</h4>
-              <h4><i class="text-center"></i>Lecture name</h4>
-              <div class="table-responsive">
-              <table class="table table-striped table-vcenter mb-0">
-               <tbody>
-              <tr>
-               <td class="w20"><i class="fa fa-calendar text-blue"></i></td>
-              <td class="text-right">23</td>
-              </tr>
-              </table>
-              </div
+          <div class="col-lg-10 col-md-6 col-sm-6">
+            
+            <div class=" mt ">
+              <form method="POST" action="create_class.php">
+              <div class="form-group">
+              <div class="row mt">
+              </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Course Name <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Subject<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Section<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Room <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                <div class="text-center">
+                <button class="btn btn-primary">Submit</button>
+                </div>
+                </div>
+              </div>
+              </form>
             </div>
         </div>
         <!--/ row -->
