@@ -127,34 +127,42 @@
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <form action="#" method="post">
-              Number of Questions in the quiz:
+            <form action="#" method="get">
+              <label class="text-right" >Choose Number of Questions:</label>
               <select id="numbers">
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option>5</option>
+              <option selected>5</option>
               <option>6</option>
               <option>7</option>
               <option>8</option>
               <option>9</option>
-              <option selected>10</option>
+              <option>10</option>
               <option>11</option>
               <option>12</option>
               <option>13</option>
               <option>14</option>
               <option>15</option>
               </select>
-              <input onclick="getQuestion();" value="Quiz Area" id="quiz" />
-              <button onclick="clear();">Clear Quiz</button>  
+              <br><br>
+              <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-theme" onclick="getQuestion()">Set Quiz Area</button>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-theme04" onclick="clear()">Reset Quiz Area</button>
+                </div>
+              </div>  
+              <br>
               <div id="questions"></div>
               <script type="text/javascript">
                 function getQuestion(){
                   const select = document.getElementById('numbers');
                   var value = select.options[select.selectedIndex].value;
                   for(let i=1; i<=value; i++){
-                    document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>1. <input type='text' name='"+i+"option1' placeholder='Option 1' size=70><br>2. <input type='text' placeholder='Option 2' name='"+i+"option2' size='70'><br>3. <input type='text' placeholder='Option 3' name='"+i+"option3' size=70><br>4. <input type='text' placeholder='Option 4' name='"+i+"option4' size=70><br>Correct Answer: <input type='text' placeholder='Correct Option' name='"+i+"correct' size=70><br><br>";
+                    document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input class='form-control' type='text' name='"+i+"question' placeholder='Enter question here' size=80><br><input class='form-control' type='text' name='"+i+"option1' placeholder='Option 1' size=70><br><input class='form-control' type='text' placeholder='Option 2' name='"+i+"option2' size='70'><br><input class='form-control' type='text' placeholder='Option 3' name='"+i+"option3' size=70><br><input class='form-control' type='text' placeholder='Option 4' name='"+i+"option4' size=70><br>Correct Answer: <input class='form-control' type='text' placeholder='Correct Option' name='"+i+"correct' size=70><br><br>";
                   }
                 }
 
@@ -162,6 +170,7 @@
                   document.getElementById('questions').innerHTML = "";
                 }
               </script>
+              <button type="button" class="btn btn-primary btn-lg btn-block">Generate Quiz</button>
             </form>
         </div>
         <!--/ row -->
@@ -191,3 +200,5 @@
 </body>
 
 </html>
+
+
