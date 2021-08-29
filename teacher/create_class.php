@@ -1,5 +1,30 @@
 <?php
-include('session.php')
+include('session.php');
+include('../conn.php');
+$sql="select email from student where email='$user_check' and division='$user_role'";
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($result);
+?>
+<?php
+include('../conn.php');
+if(isset($_POST['create_class'])){
+        $cname=mysqli_real_escape_string($conn,$_POST['cname']);
+        $subject=mysqli_real_escape_string($conn,$_POST[['subject']);
+        $section=mysqli_real_escape_string($conn,$_POST['section']);
+        $room=mysqli_real_escape_string($conn,$_POST['room']);
+        if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
+                $sql1="INSERT INTO `student`(`email`, `password`, `password1`, `division`) VALUES ('$email','$newpass1','$newpass2','$division')";
+                $result=mysqli_query($conn,$sql1);
+                if($result)
+                    $flag=1;
+            
+                
+            
+        }
+        else
+            echo" Empty values";
+        
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +59,7 @@ include('session.php')
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
+      <a href="dashboard.php" class="logo"><b><?php echo $row['email'];?></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -130,24 +155,24 @@ include('session.php')
                 <div class="row mt">
                   <label class="col-md-2 col-form-label">Subject<span class="text-danger">*</span></label>
                   <div class="col-md-6">
-                  <input type="text" class="form-control"name="cname" required>
+                  <input type="text" class="form-control"name="subject" required>
                   </div>
                 </div>
                 <div class="row mt">
                   <label class="col-md-2 col-form-label">Section<span class="text-danger">*</span></label>
                   <div class="col-md-6">
-                  <input type="text" class="form-control"name="cname" required>
+                  <input type="text" class="form-control"name="section" required>
                   </div>
                 </div>
                 <div class="row mt">
                   <label class="col-md-2 col-form-label">Room <span class="text-danger">*</span></label>
                   <div class="col-md-6">
-                  <input type="text" class="form-control"name="cname" required>
+                  <input type="text" class="form-control"name="room" required>
                   </div>
                 </div>
                 <div class="row mt">
                 <div class="text-center">
-                <button class="btn btn-primary">Submit</button>
+                <button class="btn btn-primary" name="create_class">Submit</button>
                 </div>
                 </div>
               </div>

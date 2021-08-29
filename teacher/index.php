@@ -29,11 +29,10 @@ $row=mysqli_fetch_array($result);
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-<<<<<<< HEAD
+
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
-=======
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
+
 </head>
 
 <body>
@@ -57,11 +56,9 @@ $row=mysqli_fetch_array($result);
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-<<<<<<< HEAD
+
           <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
-=======
-          <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
+
           <li class="mt">
             <a class="active" href="dashboard.php">
               <i class="fa fa-dashboard"></i>
@@ -74,15 +71,15 @@ $row=mysqli_fetch_array($result);
               <span>Task</span>
               </a>
             <ul class="sub">
-<<<<<<< HEAD
+
               <li><a href="assignment.php">Assignments</a></li>
               <li><a href="quiz.php">Small Quiz</a></li>
-=======
+
               <li><a href="#">Assignments</a></li>
               <li><a href="#">Class test</a></li>
               <li><a href="#">Presentation</a></li>
               <li><a href="#">Small Quiz</a></li>
->>>>>>> f431fc89e2d14b28cb81bdf04c5ebc5a3eccb9d2
+
             </ul>
           </li>
           <li class="sub-menu">
