@@ -98,13 +98,15 @@ if(isset($_POST['register'])){
                         var password2 = $("#exampleInputPassword2").val();
 
                         if (password1 == password2){
-                            $("#validate-status").text("Valid");
                             // document.getElementById('validate-status').style.background = "green";
-                            document.getElementById('validate-status').style.color = "green";
+                            //document.getElementById('validate-status').style.color = "green";
+                            document.getElementById('exampleInputPassword2').style.border = "1px solid green";
+                            document.getElementById('exampleInputPassword1').style.border = "1px solid green";
                         }
                         else{
-                            $("#validate-status").text("Invalid");
-                            document.getElementById('validate-status').style.color = "red";
+                            //document.getElementById('validate-status').style.color = "red";
+                            document.getElementById('exampleInputPassword1').style.border = "1px solid red";
+                            document.getElementById('exampleInputPassword2').style.border = "1px solid red";
                         }
                     }
                 </script>
