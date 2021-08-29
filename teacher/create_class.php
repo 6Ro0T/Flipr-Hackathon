@@ -8,6 +8,7 @@ $row=mysqli_fetch_array($result);
 <?php
 include('../conn.php');
 if(isset($_POST['create_class'])){
+        $email=mysqli_real_escape_string($conn,$_POST['email']);
         $cname=mysqli_real_escape_string($conn,$_POST['cname']);
         $subject=mysqli_real_escape_string($conn,$_POST['subject']);
         $section=mysqli_real_escape_string($conn,$_POST['section']);
