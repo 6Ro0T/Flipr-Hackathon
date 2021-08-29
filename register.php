@@ -53,9 +53,11 @@ if(isset($_POST['register'])){
 <body class="font-muli theme-cyan gradient">
     <header style="height: 85px; background: #22242a; border-bottom: 1px solid #393d46;">
         <div class="text-center">
-                    <a class="header-brand" href="register.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px; margin-top: 10px;"></i></a>
+            <div class="col-md-5 offset-md-4">
+                    <a class="header-brand" href="register.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px; margin-top: 10px; color: #337ab7"></i></a>
                     <div class="card-title mt-3" style="color: white;"> Registration </div>    
                 </div>
+            </div>
     </header>
 <form action="register.php" method="Post" style="margin-top: 20px;">
 
@@ -129,10 +131,10 @@ if(isset($_POST['register'])){
                 <?php } ?>
                 </div>
                 <div class="text-center">
-                    <button class="btn btn-primary btn-block" type="submit" name='register'>Register</button>
+                    <button class="btn btn-primary btn-block" type="submit" name='register' style="background-color: #286090;">Register</button>
                 </div><br>
                 <div class="text-center">
-                    <button class="btn btn-primary btn-block" type="submit" name='signin' onclick="window.location.href='index.php';">Sign In Again</button>
+                    <button class="btn btn-primary btn-block" type="submit" name='signin' onclick="window.location.href='index.php';" style="background-color: #286090;">Sign In Again</button>
                 </div>	
             </div>
         </div>        

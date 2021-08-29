@@ -58,10 +58,10 @@
               <span>Task</span>
               </a>
             <ul class="sub">
-              <li><a href="general.html">Assignments</a></li>
-              <li><a href="buttons.html">Class test</a></li>
-              <li><a href="panels.html">Presentation</a></li>
-              <li><a href="font_awesome.html">Small Quiz</a></li>
+              <li><a href="#">Assignments</a></li>
+              <li><a href="#">Class test</a></li>
+              <li><a href="#">Presentation</a></li>
+              <li><a href="#">Small Quiz</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -70,10 +70,10 @@
               <span>Calendar</span>
               </a>
             <ul class="sub">
-              <li><a href="grids.html">Schedules</a></li>
-              <li><a href="calendar.html">Syllabus Calendar</a></li>
-              <li><a href="gallery.html">Class Time Table</a></li>
-              <li><a href="todo_list.html">Holidays</a></li>
+              <li><a href="#">Schedules</a></li>
+              <li><a href="#">Syllabus Calendar</a></li>
+              <li><a href="#">Class Time Table</a></li>
+              <li><a href="#">Holidays</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -82,21 +82,15 @@
               <span>Meet</span>
               </a>
           </li>
-          <li>
-            <a href="inbox.html">
-              <i class="fa fa-envelope"></i>
-              <span>Mail </span>
-              </a>
-          </li>
           <li class="sub-menu">
             <a href="javascript:;">
               <i class=" fa fa-book"></i>
               <span>Notes</span>
               </a>
             <ul class="sub">
-              <li><a href="morris.html">Textbooks</a></li>
-              <li><a href="chartjs.html">Teacher Notes</a></li>
-              <li><a href="flot_chart.html">Student's Written Notes</a></li>
+              <li><a href="#">Textbooks</a></li>
+              <li><a href="#">Teacher Notes</a></li>
+              <li><a href="#">Student's Written Notes</a></li>
             </ul>
           </li>
           <li class="sub-menu">
@@ -105,8 +99,8 @@
               <span>Chat Room</span>
               </a>
             <ul class="sub">
-              <li><a href="lobby.html">Lobby</a></li>
-              <li><a href="chat_room.html"> Chat Room</a></li>
+              <li><a href="#">Lobby</a></li>
+              <li><a href="#"> Chat Room</a></li>
             </ul>
           </li>
         </ul>
