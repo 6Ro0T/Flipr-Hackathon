@@ -28,11 +28,11 @@
 </head>
 <body class="font-muli theme-cyan gradient">
 
-  <header class="header black-bg">
+  <header class="header black-bg" style="height: 85px;">
     <div class="col-md-5 offset-md-6">
                     <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
 
-                    <div class="card-title mt-3"> Login</div>
+                    <div class="card-title mt-3" style="color: white;"> Login</div>
                     
                 </div>
   </header>
