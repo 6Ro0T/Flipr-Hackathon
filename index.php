@@ -27,9 +27,9 @@
 
 </head>
 <body class="font-muli theme-cyan gradient">
-  <header class="header black-bg">
+  <header class="header black-bg" style="height: 85px;">
     <div class="text-center">
-                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
+                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px; margin-top: 10px;"></i></a>
                     <div class="card-title mt-3"> Login</div>
                     
                 </div>
@@ -37,9 +37,9 @@
     <div class="row">
         <div class="col-md-5 offset-md-4">
             <div class="card-body">
-            <form action="index.php" method="Post" style="margin-top: 80px;">
+            <form action="index.php" method="Post" style="margin-top: 90px;">
                 <div class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email"name="email" required>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email"name="email" required>
                 </div>
                 <div class="form-group">
                     
@@ -59,7 +59,7 @@
                 </div>
                 
 				</form>
-                <div class="text-center">
+                <div class="text-center" style="margin: 15px;">
                
                 <div>
                 <a href="register.php">Don't Have An Account?</a>

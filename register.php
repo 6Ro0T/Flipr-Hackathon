@@ -42,6 +42,7 @@ if(isset($_POST['register'])){
 
     <title>MYNCC:Register</title>
 
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/fontawesome.min.css" integrity="sha384-jLKHWM3JRmfMU0A5x5AkjWkw/EYfGUAGagvnfryNV3F9VqM98XiIH7VBGVoxVSc7" crossorigin="anonymous">
     <!-- Bootstrap Core and vandor -->
@@ -50,13 +51,13 @@ if(isset($_POST['register'])){
     <!-- Core css -->
 </head>
 <body class="font-muli theme-cyan gradient">
-    <header class="header black-bg">
+    <header style="height: 85px; background: #22242a; border-bottom: 1px solid #393d46;">
         <div class="text-center">
-                    <a class="header-brand" href="index.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px;"></i></a>
-                    <div class="card-title mt-3"> Registration </div>    
+                    <a class="header-brand" href="register.php"><i class="fa fa-graduation-cap brand-logo" style="font-size: 30px; margin-top: 10px;"></i></a>
+                    <div class="card-title mt-3" style="color: white;"> Registration </div>    
                 </div>
     </header>
-<form action="register.php" method="Post" style="margin-top: 100px;">
+<form action="register.php" method="Post" style="margin-top: 20px;">
 
     <div class="row">
         <div class="col-md-5 offset-md-4">
@@ -75,15 +76,16 @@ if(isset($_POST['register'])){
                     <p id="validate-status" ></p>
                 </div>
                 <div class="">
-                 <label for="cars" >Choose a Module:</label>
+                 <label for="role" >Choose a Module:</label>
 
-                <select name="division"  required >
+                <select name="division"  required>
                 <option >Select</option>
                 <option value="teacher" >Teacher</option>
                 <option value="student">Student</option>
                 
                 </select> 
                 </div>
+                <br>
                 <script type="text/javascript">
                     $(document).ready(function(){
                         $("#exampleInputPassword2").keyup(validate);
@@ -104,7 +106,7 @@ if(isset($_POST['register'])){
                         }
                     }
                 </script>
-                <div class="form-group" style="margin-left: 30%;">
+                <!-- <div class="form-group" style="margin-left: 30%;">
                     <input type="radio" name="teacher" id="teacher" class="form-check-input" style="height: 20px; width: 20px;">
                         <label class="form-check-label" style="margin-left: 10px; font-size: 15px;">Teacher</label>
                     </input>
@@ -113,11 +115,11 @@ if(isset($_POST['register'])){
                     <input type="radio" name="student" id="student" class="form-check-input" style="height: 20px; width: 20px;">
                         <label class="form-check-label" style="margin-left: 10px; font-size: 15px;">Student</label>
                     </input>
-                </div>
+                </div> -->
                 <div class="text-center">
                 <?php if($flag) {?>
                     <div class="alert alert-success">
-                    <Strong>Registered Successfully</strong>
+                    <Strong script="alert(1);">Registered Successfully</strong>
                     </div>
                 <?php } ?>
                 <?php if($count) {?>
@@ -128,6 +130,9 @@ if(isset($_POST['register'])){
                 </div>
                 <div class="text-center">
                     <button class="btn btn-primary btn-block" type="submit" name='register'>Register</button>
+                </div><br>
+                <div class="text-center">
+                    <button class="btn btn-primary btn-block" type="submit" name='signin' onclick="window.location.href='index.php';">Sign In Again</button>
                 </div>	
             </div>
         </div>        
