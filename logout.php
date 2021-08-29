@@ -5,7 +5,7 @@ require_once 'config.php';
 // Remove token and user data from the session
 unset($_SESSION['token']);
 unset($_SESSION['userData']);
-
+8
 // Reset OAuth access token
 $gClient->revokeToken();
 
