@@ -157,7 +157,6 @@
   <!--script for this page-->
   <script src="lib/sparkline-chart.js"></script>
   <script src="lib/zabuto_calendar.js"></script>
-<<<<<<< Updated upstream
   <script type="text/javascript">
 
   </script>
