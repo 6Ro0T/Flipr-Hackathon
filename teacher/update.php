@@ -155,7 +155,7 @@ if(isset($_POST['clupdate'])){
                 
                 if(isset($_POST['update'])){
                 $update=$_POST['update'];
-                echo $update;
+               
                 $sql1="select * from create_class where id ='$update'";
                 $result1=mysqli_query($conn,$sql1);
                 $row1=mysqli_fetch_array($result1);

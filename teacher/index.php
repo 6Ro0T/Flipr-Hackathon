@@ -162,15 +162,15 @@ if(isset($_POST['delete'])){
 
                <div class="btn-group btn-group-justified">
                 <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="button" class="btn btn-success" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
+                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
                 </div>
                 <div class="btn-group">
 
-                  <form action="update.php" method="POST"><button type="button" class="btn btn-warning" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
+                  <form action="update.php" method="POST"><button type="submit" class="btn btn-warning" name='update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
 
                 </div>
                 <div class="btn-group">
-                  <form action="index.php" method="POST"><button type="button" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
+                  <form action="index.php" method="POST"><button type="submit" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
                 </div>
               </div>
             </div>
