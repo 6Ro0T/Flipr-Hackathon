@@ -129,17 +129,16 @@ $row=mysqli_fetch_array($result);
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-12 col-md-6 col-sm-6">
-            
-          
-            <div class="card">
-              <div class="text-center">
-                
+         
+         <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                <div class="steps pn">
+                  <label for="op1">Class Name: [dummy]</label>
+                  <label for="op2">Subject Name: [dummy]</label>
+                  <label for="op3">Section: [dummy]</label>
+                  <label for="op4">Room Number: [dummy]</label>
+                  <input type="submit" value="All Done! Go Back" id="submit" onclick="window.location.href='index.php'">
+                </div>
               </div>
-              
-            
-
-           
-            </div>
                
         </div>
         </div>
