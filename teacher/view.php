@@ -171,7 +171,7 @@ if(isset($_POST['message'])){
                 </form>
                  <?php if($flag) {?>
                         <div class="alert alert-success">
-                        <Strong>Message Posted ...</strong>
+                        <Strong>Message Posted ....</strong>
                         </div>
                         <?php } ?>
               </div>
