@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 30, 2021 at 09:24 AM
+-- Generation Time: Aug 30, 2021 at 05:15 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -43,7 +43,29 @@ CREATE TABLE `create_class` (
 --
 
 INSERT INTO `create_class` (`id`, `tea_name`, `name`, `class_name`, `subject`, `section`, `room`) VALUES
-(17, 'ranjith@mail.com', 'Ranjith', 'New year Mix', 'Spoof Test', 'A', '101');
+(19, 'ranjith@mail.com', 'Ranjith', 'Embed Iframe in PHP', 'Test mail for my portfolio', 'A', '101'),
+(20, 'ranjith@mail.com', 'Ranjith', 'Arijit Songs', 'Test mail for my portfolio', 'A', '101');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message`
+--
+
+CREATE TABLE `message` (
+  `id` int(11) NOT NULL,
+  `class_name` varchar(30) NOT NULL,
+  `message` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `message`
+--
+
+INSERT INTO `message` (`id`, `class_name`, `message`) VALUES
+(2, 'Embed Iframe in PHP', 'hello students'),
+(3, 'Embed Iframe in PHP', 'hello'),
+(4, 'Embed Iframe in PHP', 'hello');
 
 -- --------------------------------------------------------
 
@@ -98,6 +120,12 @@ ALTER TABLE `create_class`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `message`
+--
+ALTER TABLE `message`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
@@ -117,7 +145,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `create_class`
 --
 ALTER TABLE `create_class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `message`
+--
+ALTER TABLE `message`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `student`
