@@ -16,7 +16,7 @@ if(isset($_POST['create_class'])){
         $section=mysqli_real_escape_string($conn,$_POST['section']);
         $room=mysqli_real_escape_string($conn,$_POST['room']);
         if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
-                $sql1="INSERT INTO `create_class`(`tea_name`,`name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$cname','$subject','$section','$room')";
+                $sql1="INSERT INTO `create_class`(`tea_name`,`name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$name','$cname','$subject','$section','$room')";
                 $result=mysqli_query($conn,$sql1);
                 if($result)
                     $flag=1;

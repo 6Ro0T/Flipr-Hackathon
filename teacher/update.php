@@ -6,6 +6,27 @@ $sql="select * from student where email='$user_check' and division='$user_role'"
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
+<?php
+if(isset($_POST['clupdate'])){
+        $email=mysqli_real_escape_string($conn,$_POST['email']);
+        $id=mysqli_real_escape_string($conn,$_POST['id']);
+        
+        $name=mysqli_real_escape_string($conn,$_POST['name']);
+        $cname=mysqli_real_escape_string($conn,$_POST['cname']);
+        $subject=mysqli_real_escape_string($conn,$_POST['subject']);
+        $section=mysqli_real_escape_string($conn,$_POST['section']);
+        $room=mysqli_real_escape_string($conn,$_POST['room']);
+        if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room) || !empty($email) || !empty($name) || !empty($id)){
+                $sql1="UPDATE `create_class` SET`tea_name`='$email',`name`='$name',`class_name`='$cname',`subject`='$subject',`section`='$section',`room`='$room' WHERE id='$id'";
+                $result=mysqli_query($conn,$sql1);
+                if($result)
+                    $flag=1;
+            
+                
+            
+        }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -122,16 +143,20 @@ $row=mysqli_fetch_array($result);
             <div class=" mt ">
 			<?php if($flag) {?>
                     <div class="alert alert-success">
-                    <Strong script="alert(1);">Registered Successfully</strong>
+                    <Strong script="alert(1);">Updated Successfully</strong>
+                    
+                    </div>
+                    <div class="">
+                    <a href="index.php"><button class="btn btn-primary">Back</button></a>
                     </div>
                 <?php } ?>
-              <form method="POST" action="create_class.php">
+              <form method="POST" action="update.php">
                <?php
                 
                 if(isset($_POST['update'])){
                 $update=$_POST['update'];
                 echo $update;
-                $sql1="select * from create_class where tea_name ='$update'";
+                $sql1="select * from create_class where id ='$update'";
                 $result1=mysqli_query($conn,$sql1);
                 $row1=mysqli_fetch_array($result1);
 				
@@ -145,6 +170,11 @@ $row=mysqli_fetch_array($result);
                   <div class="col-md-6">
                   <input type="text" class="form-control"name="cname" value="<?php echo $row1['class_name'];?>" required>
                   <input type="hidden" value="<?php echo $row['email'];?>" name="email">
+                  <input type="hidden" value="<?php echo $row['name'];?>" name="name">
+                  <input type="hidden" value="<?php echo $update;?>" name="id">
+                
+                  
+                  
                   </div>
                 </div>
                 <div class="row mt">
@@ -168,7 +198,7 @@ $row=mysqli_fetch_array($result);
 				
                 <div class="row mt">
                 <div class="text-center">
-                <button class="btn btn-primary" name="create_class">Update</button>
+                <button class="btn btn-primary" name="clupdate">Update</button>
                 </div>
                 </div>
               </div>
