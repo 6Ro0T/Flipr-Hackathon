@@ -1,3 +1,17 @@
+<?php
+include('session.php');
+include('../conn.php');
+
+$sql="select * from student where email='$user_check' and division='$user_role'";
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($result);
+?>
+<?php
+if(isset($_POST['submit']))
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +60,7 @@
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="index.php" class="logo"><b>USER<span>NAME</span></b></a>
+      <a href="index.php" class="logo"><b><?php echo $row['name'];?></span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -169,7 +183,7 @@
                 </svg>
                 <label>Select the Due Date: <input class="form-control" type="date" name="datetime"/></label>
               </div>
-              <button type="button" class="btn btn-primary btn-lg btn-block">Post Assignment Questions</button>
+              <button type="submit" name="submit"class="btn btn-primary btn-lg btn-block">Post Assignment Questions</button>
             </form>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">

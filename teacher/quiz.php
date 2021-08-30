@@ -1,6 +1,12 @@
+<?php
+include('session.php');
+include('../conn.php');
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,14 +132,14 @@
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <h1>SMALL QUIZ</h1>
-            <form action="#" method="get">
+            <form action="quiz.php" method="POST">
               <label class="text-right" >Choose Number of Questions:</label>
               <select id="numbers">
               <option>1</option>
               <option>2</option>
               <option>3</option>
               <option>4</option>
-              <option selected>5</option>
+              <option >5</option>
               <option>6</option>
               <option>7</option>
               <option>8</option>
@@ -174,7 +180,7 @@
                 </svg>
                 <label>Select the Due Date: <input class="form-control" type="date" name="datetime"/></label>
               </div>
-              <button type="button" class="btn btn-primary btn-lg btn-block">Generate Quiz</button>
+              <button type="submit" class="btn btn-primary btn-lg btn-block">Generate Quiz</button>
             </form>
         </div>
 

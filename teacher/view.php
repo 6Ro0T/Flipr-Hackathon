@@ -175,7 +175,7 @@ if(isset($_POST['message'])){
                         </div>
                         <?php } ?>
               </div>
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-12 col-md-6">
               <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'">Go Back</button>
               <br>
               <?php
@@ -187,10 +187,12 @@ if(isset($_POST['message'])){
                   <div class="card">
                   <p><?php echo $value['message'];?>
                   </div>
-                <?php } else{?> 
-              <div class="card">
+                <?php } else{?>    
+               <div class="col-lg-12 col-md-6 col-sm-6 mb">
+               <div class="card">
               <?php echo "Post a message to appear here"?>
               <p>
+              </div>
               </div>
                 <?php }?>
             </div>
