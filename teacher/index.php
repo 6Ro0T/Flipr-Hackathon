@@ -200,9 +200,6 @@ if(isset($_POST['delete'])){
   <!--script for this page-->
   <script src="../lib/sparkline-chart.js"></script>
   <script src="../lib/zabuto_calendar.js"></script>
-  <script type="text/javascript">
-
-  </script>
 </body>
 
 </html>
