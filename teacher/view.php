@@ -130,15 +130,26 @@ $row=mysqli_fetch_array($result);
         <div class="row mt">
           <div class="col-lg-12 col-md-6 col-sm-6">
          
-         <div class="col-lg-6 col-md-6 col-sm-6 mb">
+         <div class="col-lg-8 col-md-6 col-sm-6 mb">
                 <div class="steps pn">
                   <label for="op1">Class Name: [dummy]</label>
                   <label for="op2">Subject Name: [dummy]</label>
                   <label for="op3">Section: [dummy]</label>
                   <label for="op4">Room Number: [dummy]</label>
-                  <input type="submit" value="All Done! Go Back" id="submit" onclick="window.location.href='index.php'">
+                </div>
+                <br><br>
+                <h4 class="title">Post Queries</h4>
+                <div class="form-group">
+                <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+                <br>
+                <button type="button" class="btn btn-primary btn-lg btn-block">POST</button>
                 </div>
               </div>
+            <div class="col-lg-4 col-md-6">
+              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'">Go Back</button>
+              <br>
+              <textarea>DISPLAY POSTED CONTENT hERE</textarea>
+            </div>
                
         </div>
         </div>
