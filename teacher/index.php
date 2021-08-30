@@ -159,22 +159,15 @@ if(isset($_POST['delete'])){
               
               <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
               <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-<<<<<<< Updated upstream
-=======
 
-
-
->>>>>>> Stashed changes
                <div class="btn-group btn-group-justified">
                 <div class="btn-group">
                   <form action="view.php" method="POST"><button type="button" class="btn btn-success" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
                 </div>
                 <div class="btn-group">
-<<<<<<< Updated upstream
+
                   <form action="update.php" method="POST"><button type="button" class="btn btn-warning" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
-=======
-                  <form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
->>>>>>> Stashed changes
+
                 </div>
                 <div class="btn-group">
                   <form action="index.php" method="POST"><button type="button" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
