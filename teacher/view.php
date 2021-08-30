@@ -177,9 +177,9 @@ if(isset($_POST['message'])){
                         <?php } ?>
               </div>
             <div class="col-lg-4 col-md-6">
-              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'">Go Back</button>
-              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='assignment.php'">Create Assignment: <?php echo $row1['class_name'];?></button>
-              <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='quiz.php'">Create Quiz: <?php echo $row1['class_name'];?></button>
+              <button type="button" class="btn btn-primary " onclick="window.location.href='index.php'">Go Back</button></br>
+              <button type="button" class="btn btn-primary " name="assignment" value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='assignment.php'">Create Assignment:</button>
+              <button type="button" class="btn btn-primary " name="quiz"value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='quiz.php'">Create Quiz: </button>
               <br>
               <?php
                 $count=0;
