@@ -7,7 +7,17 @@ $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
 <?php
-
+$flag=0;
+if(isset($_POST['message'])){
+    $cname=$_POST['clsname'];
+    echo $cname;
+    $message=mysqli_real_escape_string($conn,$_POST['message']);
+    echo $message;
+    $sql1="INSERT INTO `message`(`class_name`, `message`) VALUES ('$cname','$message')";
+    $result=mysqli_query($conn,$sql1);
+    if($result)
+        $flag=1;
+}
 
 ?>
 <!DOCTYPE html>
@@ -129,26 +139,60 @@ $row=mysqli_fetch_array($result);
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-12 col-md-6 col-sm-6">
-         
-         <div class="col-lg-8 col-md-6 col-sm-6 mb">
+                <?php
+                
+                if(isset($_POST['view'])){
+                $view=$_POST['view'];
+                $name=$_POST['clsname'];
+                $sql1="select * from create_class where id ='$view'";
+                $result1=mysqli_query($conn,$sql1);
+                $row1=mysqli_fetch_array($result1);
+				
+                ?>
+
+              <div class="col-lg-12 col-md-6 col-sm-6 mb">
                 <div class="steps pn">
-                  <label for="op1">Class Name: [dummy]</label>
-                  <label for="op2">Subject Name: [dummy]</label>
-                  <label for="op3">Section: [dummy]</label>
-                  <label for="op4">Room Number: [dummy]</label>
+                  <label for="op1">Class Name:<?php echo $row1['class_name'];?></label>
+                  <label for="op2">Subject Name:<?php echo $row1['subject'];?></label>
+                  <label for="op3">Section:<?php echo $row1['section'];?></label>
+                  <label for="op4">Room Number:<?php echo $row1['room'];?></label>
                 </div>
+                <?php }?>
                 <br><br>
                 <h4 class="title">Post Queries</h4>
+                <form action="view.php" method="POST">
                 <div class="form-group">
+                  
+                <input type="hidden" name="clsname" value="<?php echo $name; ?>">
                 <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
                 <br>
-                <button type="button" class="btn btn-primary btn-lg btn-block">POST</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">POST</button>
                 </div>
+                </form>
+                 <?php if($flag) {?>
+                        <div class="alert alert-success">
+                        <Strong>Message Posted ...</strong>
+                        </div>
+                        <?php } ?>
               </div>
             <div class="col-lg-4 col-md-6">
               <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'">Go Back</button>
               <br>
-              <textarea>DISPLAY POSTED CONTENT hERE</textarea>
+              <?php
+                $sql="select * from message";
+                $result=mysqli_query($conn,$sql);
+                $value=mysqli_fetch_array($result);
+                $rows=mysqli_num_rows($result);
+                if($rows){?>
+                  <div class="card">
+                  <p><?php echo $value['message'];?>
+                  </div>
+                <?php } else{?> 
+              <div class="card">
+              <?php echo "Post a message to appear here"?>
+              <p>
+              </div>
+                <?php }?>
             </div>
                
         </div>

@@ -162,7 +162,9 @@ if(isset($_POST['delete'])){
 
                <div class="btn-group btn-group-justified">
                 <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
+                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='view' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button>
+                  <input type="hidden" name="clsname" value="<?php echo $row1['class_name'];?>">
+                  </form>
                 </div>
                 <div class="btn-group">
 
