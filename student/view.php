@@ -8,14 +8,17 @@ $row=mysqli_fetch_array($result);
 ?>
 <?php
 $flag=0;
-
-if(isset($_POST['delete'])){
-    $delete=mysqli_real_escape_string($conn,$_POST['delete']);
-    $sql2="DELETE FROM `create_class` WHERE id='$delete'";
-    $result3=mysqli_query($conn,$sql2);
-    if($result3)
+if(isset($_POST['message'])){
+    $cname=$_POST['clsname'];
+    echo $cname;
+    $message=mysqli_real_escape_string($conn,$_POST['message']);
+    echo $message;
+    $sql1="INSERT INTO `message`(`class_name`, `message`) VALUES ('$cname','$message')";
+    $result=mysqli_query($conn,$sql1);
+    if($result)
         $flag=1;
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -135,52 +138,68 @@ if(isset($_POST['delete'])){
     <section id="main-content">
       <section class="wrapper">
         <div class="row mt">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div>
-              <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
-            <?php if($flag) {?>
-                    <div class="alert alert-success">
-                    <Strong script="alert(DELETED);">Deleted Successfully</strong>
-                    </div>
-            <?php } ?>
-            <?php
-            $count=0;
-            $sql1="select * from create_class where tea_name='$user_check'";
-            $result1=mysqli_query($conn,$sql1);
-            $count=mysqli_num_rows($result1);
-            if($count){
-              while($row1=mysqli_fetch_array($result1)){  
-              ?>
-            <div class="card">
-              <div class="text-center">
-                <h4><i class="tx-medium"></i></h4>
+          <div class="col-lg-12 col-md-6 col-sm-6">
+                <?php
+                
+                if(isset($_POST['view'])){
+                $view=$_POST['view'];
+                $name=$_POST['clsname'];
+                $sql1="select * from create_class where id ='$view'";
+                $result1=mysqli_query($conn,$sql1);
+                $row1=mysqli_fetch_array($result1);
+				
+                ?>
+
+              <div class="col-lg-8 col-md-6 col-sm-6 mb">
+                <div class="steps pn">
+                  <label for="op1">Class Name:<?php echo $row1['class_name'];?></label>
+                  <label for="op2">Subject Name:<?php echo $row1['subject'];?></label>
+                  <label for="op3">Section:<?php echo $row1['section'];?></label>
+                  <label for="op4">Room Number:<?php echo $row1['room'];?></label>
+                </div>
+                <?php }?>
+                <br><br>
+                <h4 class="title">Post Queries</h4>
+                <form action="view.php" method="POST">
+                <div class="form-group">
+                  
+                <input type="hidden" name="clsname" value="<?php echo $name; ?>">
+                <textarea class="form-control" name="message" id="contact-message" placeholder="Your Message" rows="5" data-rule="required" data-msg="Please write something for us"></textarea>
+                <br>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">POST</button>
+                </div>
+                </form>
+                 <?php if($flag) {?>
+                 
+                        <div class="alert alert-success">
+                        <Strong>Message Posted ....</strong>
+                        </div>
+                        <?php } ?>
               </div>
-              
-              <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
-              <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-
-               <div class="btn-group btn-group-justified">
-                <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='view' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button>
-                  <input type="hidden" name="clsname" value="<?php echo $row1['class_name'];?>">
-                  </form>
-                </div>
-                <div class="btn-group">
-
-                  <form action="update.php" method="POST"><button type="submit" class="btn btn-warning" name='update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
-
-                </div>
-                <div class="btn-group">
-                  <form action="index.php" method="POST"><button type="submit" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
-                </div>
+            <div class="col-lg-4 col-md-6">
+              <button type="button" class="btn btn-primary " onclick="window.location.href='index.php'">Go Back</button></br>
+              <button type="button" class="btn btn-primary " name="assignment" value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='assignment.php'">Create Assignment:</button>
+              <button type="button" class="btn btn-primary " name="quiz"value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='quiz.php'">Create Quiz: </button>
+              <br>
+              <?php
+                $count=0;
+                $sql="select * from message";
+                $result=mysqli_query($conn,$sql);
+                $count=mysqli_num_rows($result);
+                if($count){
+                while($rows=mysqli_fetch_array($result)){
+                ?>
+                  <div class="card">
+                  <p><?php echo $rows['message'];?>
+                  </div>
+                <?php }} else{?> 
+              <div class="card">
+              Post a message to appear here
+              <p>
               </div>
+                <?php }?>
             </div>
-              <?php }}else {?>
-            <div class="card">
-            <h4><i class="text-center">Add a class to appear here</i></h4>
-            </div>
-            <?php }?>        
+               
         </div>
         </div>
         <!--/ row -->
@@ -202,6 +221,9 @@ if(isset($_POST['delete'])){
   <!--script for this page-->
   <script src="../lib/sparkline-chart.js"></script>
   <script src="../lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+
+  </script>
 </body>
 
 </html>

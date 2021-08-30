@@ -7,16 +7,11 @@ $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
 <?php
-$flag=0;
+if(isset($_POST['submit']))
 
-if(isset($_POST['delete'])){
-    $delete=mysqli_real_escape_string($conn,$_POST['delete']);
-    $sql2="DELETE FROM `create_class` WHERE id='$delete'";
-    $result3=mysqli_query($conn,$sql2);
-    if($result3)
-        $flag=1;
-}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,10 +21,10 @@ if(isset($_POST['delete'])){
   <meta name="description" content="">
   <meta name="author" content="Dashboard">
   <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-  <title>Dashboard</title>
+  <title>Teacher's Dashboard</title>
 
   <!-- Favicons -->
-  <link href="../img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="../lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -41,10 +36,21 @@ if(isset($_POST['delete'])){
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-
-  <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/style-responsive.css" rel="stylesheet">
-
+  <style type="text/css">
+    /*adding style to quiz buttons*/
+    #quiz{
+      background-color: lightblue;
+      border-radius: 5px;
+      border: 1px solid red;
+      padding: 10px;
+      font-size: 20px;
+    }
+    #quiz:hover{
+      cursor: pointer;
+      background-color: blue;
+      border: 1px solid orange;
+    }
+  </style>
 </head>
 
 <body>
@@ -54,7 +60,7 @@ if(isset($_POST['delete'])){
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="index.php" class="logo"><b><?php echo $row['name'];?></b></a>
+      <a href="index.php" class="logo"><b><?php echo $row['name'];?></span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -68,11 +74,9 @@ if(isset($_POST['delete'])){
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-
-          <p class="centered"><img src="../img/ranjith.png" class="img-circle" width="80"></p>
-
+          <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
-            <a class="active" href="index.php">
+            <a href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -83,7 +87,6 @@ if(isset($_POST['delete'])){
               <span>Task</span>
               </a>
             <ul class="sub">
-
               <li><a href="assignment.php">Assignments</a></li>
               <li><a href="quiz.php">Small Quiz</a></li>
             </ul>
@@ -136,56 +139,68 @@ if(isset($_POST['delete'])){
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <div>
-              <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
-            <?php if($flag) {?>
-                    <div class="alert alert-success">
-                    <Strong script="alert(DELETED);">Deleted Successfully</strong>
-                    </div>
-            <?php } ?>
-            <?php
-            $count=0;
-            $sql1="select * from create_class where tea_name='$user_check'";
-            $result1=mysqli_query($conn,$sql1);
-            $count=mysqli_num_rows($result1);
-            if($count){
-              while($row1=mysqli_fetch_array($result1)){  
-              ?>
-            <div class="card">
-              <div class="text-center">
-                <h4><i class="tx-medium"></i></h4>
+            <h1>ASSIGNMENTS</h1>
+            <form action="#" method="get">
+              <label class="text-right" >Choose Number of Questions:</label>
+              <select id="numbers">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option selected>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              </select>
+              <br><br>
+              <div class="btn-group btn-group-justified">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-theme" onclick="getQuestion()">Set Assignment Question Area</button>
+                </div>
+                <div class="btn-group">
+                  <button class="btn btn-theme04" onclick="clear()">Reset Assignment Question Area</button>
+                </div>
+              </div>  
+              <br>
+              <div id="questions"></div>
+              <script type="text/javascript">
+                function getQuestion(){
+                  const select = document.getElementById('numbers');
+                  var value = select.options[select.selectedIndex].value;
+                  for(let i=1; i<=value; i++){
+                    document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input class='form-control' type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>";
+                  }
+                }
+
+                function clear(){
+                  document.getElementById('questions').innerHTML = "";
+                }
+              </script>
+              <div class="col-md-5 offset 4">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
+                </svg>
+                <label>Select the Due Date: <input class="form-control" type="date" name="datetime"/></label>
               </div>
-              
-              <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
-              <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-
-               <div class="btn-group btn-group-justified">
-                <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='view' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button>
-                  <input type="hidden" name="clsname" value="<?php echo $row1['class_name'];?>">
-                  </form>
-                </div>
-                <div class="btn-group">
-
-                  <form action="update.php" method="POST"><button type="submit" class="btn btn-warning" name='update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
-
-                </div>
-                <div class="btn-group">
-                  <form action="index.php" method="POST"><button type="submit" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
-                </div>
-              </div>
-            </div>
-              <?php }}else {?>
-            <div class="card">
-            <h4><i class="text-center">Add a class to appear here</i></h4>
-            </div>
-            <?php }?>        
+              <button type="submit" name="submit"class="btn btn-primary btn-lg btn-block">Post Assignment Questions</button>
+            </form>
         </div>
-        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h4 class="title">Displaying scheduled Assignment here</h4>
+            <!-- <div class="alert alert-info"><b>Heads up!</b> This alert needs your attention, but it's not super important.</div> -->
+            <div class="steps pn">
+                  <label for="op1">Assignment Subject Name: [dummy]</label>
+                  <label for="op2">For Section: [dummy]</label>
+                  <label for="op3">Number of Questions: [dummy]</label>
+                  <label for="op4">Assignment Due Date: [dummy]</label>
+            </div>
+          </div>
         <!--/ row -->
       </section>
+      
     </section>
+    
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="../lib/jquery/jquery.min.js"></script>
@@ -202,6 +217,11 @@ if(isset($_POST['delete'])){
   <!--script for this page-->
   <script src="../lib/sparkline-chart.js"></script>
   <script src="../lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+
+  </script>
 </body>
 
 </html>
+
+

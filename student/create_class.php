@@ -1,20 +1,32 @@
 <?php
 include('session.php');
 include('../conn.php');
-
 $sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
 <?php
 $flag=0;
-
-if(isset($_POST['delete'])){
-    $delete=mysqli_real_escape_string($conn,$_POST['delete']);
-    $sql2="DELETE FROM `create_class` WHERE id='$delete'";
-    $result3=mysqli_query($conn,$sql2);
-    if($result3)
-        $flag=1;
+include('../conn.php');
+if(isset($_POST['create_class'])){
+        $email=mysqli_real_escape_string($conn,$_POST['email']);
+        $name=mysqli_real_escape_string($conn,$_POST['name']);
+        $cname=mysqli_real_escape_string($conn,$_POST['cname']);
+        $subject=mysqli_real_escape_string($conn,$_POST['subject']);
+        $section=mysqli_real_escape_string($conn,$_POST['section']);
+        $room=mysqli_real_escape_string($conn,$_POST['room']);
+        if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
+                $sql1="INSERT INTO `create_class`(`tea_name`,`name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$name','$cname','$subject','$section','$room')";
+                $result=mysqli_query($conn,$sql1);
+                if($result)
+                    $flag=1;
+            
+                
+            
+        }
+        else
+            echo" Empty values";
+        
 }
 ?>
 <!DOCTYPE html>
@@ -41,10 +53,6 @@ if(isset($_POST['delete'])){
   <link href="../css/style.css" rel="stylesheet">
   <link href="../css/style-responsive.css" rel="stylesheet">
   <script src="../lib/chart-master/Chart.js"></script>
-
-  <link href="../css/style.css" rel="stylesheet">
-  <link href="../css/style-responsive.css" rel="stylesheet">
-
 </head>
 
 <body>
@@ -68,9 +76,7 @@ if(isset($_POST['delete'])){
       <div id="sidebar" class="nav-collapse ">
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
-
-          <p class="centered"><img src="../img/ranjith.png" class="img-circle" width="80"></p>
-
+          <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
             <a class="active" href="index.php">
               <i class="fa fa-dashboard"></i>
@@ -83,7 +89,6 @@ if(isset($_POST['delete'])){
               <span>Task</span>
               </a>
             <ul class="sub">
-
               <li><a href="assignment.php">Assignments</a></li>
               <li><a href="quiz.php">Small Quiz</a></li>
             </ul>
@@ -135,57 +140,58 @@ if(isset($_POST['delete'])){
     <section id="main-content">
       <section class="wrapper">
         <div class="row mt">
-          <div class="col-lg-6 col-md-6 col-sm-6">
-            <div>
-              <a href='create_class.php' class="btn btn-primary">Create Class</a>
-            </div>
-            <?php if($flag) {?>
+          <div class="col-lg-10 col-md-6 col-sm-6">
+            
+            <div class=" mt ">
+              <form method="POST" action="create_class.php">
+              <div class="form-group">
+              <?php if($flag) {?>
                     <div class="alert alert-success">
-                    <Strong script="alert(DELETED);">Deleted Successfully</strong>
+                    <Strong script="alert(1);">Registered Successfully</strong>
                     </div>
-            <?php } ?>
-            <?php
-            $count=0;
-            $sql1="select * from create_class where tea_name='$user_check'";
-            $result1=mysqli_query($conn,$sql1);
-            $count=mysqli_num_rows($result1);
-            if($count){
-              while($row1=mysqli_fetch_array($result1)){  
-              ?>
-            <div class="card">
-              <div class="text-center">
-                <h4><i class="tx-medium"></i></h4>
+                <?php } ?>
+              <div class="row mt">
               </div>
-              
-              <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
-              <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-
-               <div class="btn-group btn-group-justified">
-                <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="submit" class="btn btn-success" name='view' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button>
-                  <input type="hidden" name="clsname" value="<?php echo $row1['class_name'];?>">
-                  </form>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Course Name <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="cname" required>
+                  <input type="hidden" value="<?php echo $row['email'];?>" name="email">
+                  <input type="hidden" value="<?php echo $row['name'];?>" name="name">
+                  </div>
                 </div>
-                <div class="btn-group">
-
-                  <form action="update.php" method="POST"><button type="submit" class="btn btn-warning" name='update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
-
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Subject<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="subject" required>
+                  </div>
                 </div>
-                <div class="btn-group">
-                  <form action="index.php" method="POST"><button type="submit" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Section<span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="section" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                  <label class="col-md-2 col-form-label">Room <span class="text-danger">*</span></label>
+                  <div class="col-md-6">
+                  <input type="text" class="form-control"name="room" required>
+                  </div>
+                </div>
+                <div class="row mt">
+                <div class="text-center">
+                <button class="btn btn-primary" name="create_class">Submit</button>
+                </div>
                 </div>
               </div>
+              </form>
             </div>
-              <?php }}else {?>
-            <div class="card">
-            <h4><i class="text-center">Add a class to appear here</i></h4>
-            </div>
-            <?php }?>        
-        </div>
         </div>
         <!--/ row -->
       </section>
+      
     </section>
+    
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="../lib/jquery/jquery.min.js"></script>
@@ -202,6 +208,9 @@ if(isset($_POST['delete'])){
   <!--script for this page-->
   <script src="../lib/sparkline-chart.js"></script>
   <script src="../lib/zabuto_calendar.js"></script>
+  <script type="text/javascript">
+
+  </script>
 </body>
 
 </html>
