@@ -69,7 +69,7 @@ if(isset($_POST['delete'])){
         <!-- sidebar menu start-->
         <ul class="sidebar-menu" id="nav-accordion">
 
-          <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
+          <p class="centered"><img src="../img/ranjith.png" class="img-circle" width="80"></p>
 
           <li class="mt">
             <a class="active" href="index.php">
@@ -136,12 +136,12 @@ if(isset($_POST['delete'])){
       <section class="wrapper">
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
-            <div class="">
-            <a href='create_class.php' class="btn btn-primary">Create Class</a>
+            <div>
+              <a href='create_class.php' class="btn btn-primary">Create Class</a>
             </div>
             <?php if($flag) {?>
                     <div class="alert alert-success">
-                    <Strong script="alert(1);">Deleted Successfully</strong>
+                    <Strong script="alert(DELETED);">Deleted Successfully</strong>
                     </div>
             <?php } ?>
             <?php
@@ -153,7 +153,9 @@ if(isset($_POST['delete'])){
               while($row1=mysqli_fetch_array($result1)){  
               ?>
             <div class="card">
-              <div class="text-center"><h4><i class="tx-medium"></i></h4></div>
+              <div class="text-center">
+                <h4><i class="tx-medium"></i></h4>
+              </div>
               
               <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
               <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
@@ -170,21 +172,15 @@ if(isset($_POST['delete'])){
               </div>
             </div>
               <?php }}else {?>
-            
             <div class="card">
             <h4><i class="text-center">Add a class to appear here</i></h4>
             </div>
-            
-            <?php }?>
-            
-        
+            <?php }?>        
         </div>
         </div>
         <!--/ row -->
       </section>
-      
     </section>
-    
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="../lib/jquery/jquery.min.js"></script>
