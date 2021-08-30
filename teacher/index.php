@@ -54,7 +54,7 @@ if(isset($_POST['delete'])){
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b><?php echo $row['name'];?></b></a>
+      <a href="index.php" class="logo"><b><?php echo $row['name'];?></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -72,7 +72,7 @@ if(isset($_POST['delete'])){
           <p class="centered"><img src="../img/ui-divya.jpg" class="img-circle" width="80"></p>
 
           <li class="mt">
-            <a class="active" href="dashboard.php">
+            <a class="active" href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
