@@ -170,6 +170,7 @@ if(isset($_POST['message'])){
                 </div>
                 </form>
                  <?php if($flag) {?>
+                 
                         <div class="alert alert-success">
                         <Strong>Message Posted ....</strong>
                         </div>
@@ -179,17 +180,19 @@ if(isset($_POST['message'])){
               <button type="button" class="btn btn-primary btn-lg btn-block" onclick="window.location.href='index.php'">Go Back</button>
               <br>
               <?php
+                $count=0;
                 $sql="select * from message";
                 $result=mysqli_query($conn,$sql);
-                $value=mysqli_fetch_array($result);
-                $rows=mysqli_num_rows($result);
-                if($rows){?>
+                $count=mysqli_num_rows($result);
+                if($count){
+                while($rows=mysqli_fetch_array($result)){
+                ?>
                   <div class="card">
-                  <p><?php echo $value['message'];?>
+                  <p><?php echo $rows['message'];?>
                   </div>
-                <?php } else{?> 
+                <?php }} else{?> 
               <div class="card">
-              <?php echo "Post a message to appear here"?>
+              Post a message to appear here
               <p>
               </div>
                 <?php }?>
