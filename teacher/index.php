@@ -143,7 +143,7 @@ if(isset($_POST['delete'])){
                     <div class="alert alert-success">
                     <Strong script="alert(1);">Deleted Successfully</strong>
                     </div>
-                <?php } ?>
+            <?php } ?>
             <?php
             $count=0;
             $sql1="select * from create_class,student where tea_name=email and tea_name='$user_check'";
@@ -157,11 +157,13 @@ if(isset($_POST['delete'])){
               
               <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
               <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
+              <h4><i class="text-center"></i><?php echo $row1['id'];?></h4>
+              
               <table style="width:100px">
               <tbody >
               <tr>
               <td><form action="view.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye"></i>View</button></form></td>
-              <td><form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o">Update</i></button></form></td>
+              <td><form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='update' value="<?php echo $row1['tea_name'];?>"><i class="fa fa-pencil-square-o">Update</i></button></form></td>
               <td><form action="index.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o text-danger"></i>Delete</button></form></td>
               </tr>
               </tbody>
