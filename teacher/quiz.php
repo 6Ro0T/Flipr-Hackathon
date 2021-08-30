@@ -46,7 +46,7 @@
         <!-- <div class="fa fa-bars " data-placement="right" data-original-title="Toggle Navigation"></div> -->
       </div>
       <!--logo start-->
-      <a href="dashboard.php" class="logo"><b>USER<span>NAME</span></b></a>
+      <a href="index.php" class="logo"><b>USER<span>NAME</span></b></a>
       <!--logo end-->
       <div class="top-menu">
         <ul class="nav pull-right top-menu">
@@ -62,7 +62,7 @@
         <ul class="sidebar-menu" id="nav-accordion">
           <p class="centered"><img src="../img/ui-sam.jpg" class="img-circle" width="80"></p>
           <li class="mt">
-            <a href="dashboard.php">
+            <a href="index.php">
               <i class="fa fa-dashboard"></i>
               <span>Dashboard</span>
               </a>
@@ -177,11 +177,18 @@
               <button type="button" class="btn btn-primary btn-lg btn-block">Generate Quiz</button>
             </form>
         </div>
+
+
+        <div class="col-lg-6 col-md-6 col-sm-6">
+            <h4 class="title">Displaying scheduled quiz here</h4>
+            <div class="alert alert-info"><b>Heads up!</b> This alert needs your attention, but it's not super important.</div>
+          </div>
         <!--/ row -->
+
+
       </section>
       
     </section>
-    
   </section>
   <!-- js placed at the end of the document so the pages load faster -->
   <script src="../lib/jquery/jquery.min.js"></script>
