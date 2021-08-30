@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 29, 2021 at 02:32 PM
+-- Generation Time: Aug 30, 2021 at 09:24 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `create_class` (
   `id` int(11) NOT NULL,
   `tea_name` varchar(30) NOT NULL,
+  `name` varchar(25) NOT NULL,
   `class_name` varchar(255) NOT NULL,
   `subject` varchar(100) NOT NULL,
   `section` varchar(10) NOT NULL,
@@ -41,9 +42,8 @@ CREATE TABLE `create_class` (
 -- Dumping data for table `create_class`
 --
 
-INSERT INTO `create_class` (`id`, `tea_name`, `class_name`, `subject`, `section`, `room`) VALUES
-(1, 'ranjith@mail.com', 'Embed Iframe in PHP', 'Spoof Test bY Groot', 'A', '101'),
-(2, 'ranjith@mail.com', 'Embed Iframe in PHP', 'Spoof Test bY Groot', 'A', '101');
+INSERT INTO `create_class` (`id`, `tea_name`, `name`, `class_name`, `subject`, `section`, `room`) VALUES
+(17, 'ranjith@mail.com', 'Ranjith', 'New year Mix', 'Spoof Test', 'A', '101');
 
 -- --------------------------------------------------------
 
@@ -117,7 +117,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `create_class`
 --
 ALTER TABLE `create_class`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `student`
