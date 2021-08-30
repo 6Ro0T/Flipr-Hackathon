@@ -155,7 +155,6 @@
                 function getQuestion(){
                   const select = document.getElementById('numbers');
                   var value = select.options[select.selectedIndex].value;
-                  document.getElementById('getvalue').value = value;
                   for(let i=1; i<=value; i++){
                     document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input class='form-control' type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>";
                   }
