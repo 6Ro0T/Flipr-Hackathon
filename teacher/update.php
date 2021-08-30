@@ -1,11 +1,11 @@
 <?php
+$flag=0;
 include('session.php');
 include('../conn.php');
 $sql="select * from student where email='$user_check' and division='$user_role'";
 $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -120,21 +120,24 @@ $row=mysqli_fetch_array($result);
           <div class="col-lg-10 col-md-6 col-sm-6">
             
             <div class=" mt ">
-              <form method="POST" action="create_class.php">
-              <div class="form-group">
-              <?php if($flag) {?>
+			<?php if($flag) {?>
                     <div class="alert alert-success">
                     <Strong script="alert(1);">Registered Successfully</strong>
                     </div>
                 <?php } ?>
-				<?php
+              <form method="POST" action="create_class.php">
+               <?php
+                
+                if(isset($_POST['update'])){
+                $update=$_POST['update'];
+                echo $update;
+                $sql1="select * from create_class where tea_name ='$update'";
+                $result1=mysqli_query($conn,$sql1);
+                $row1=mysqli_fetch_array($result1);
 				
-				$update=$_POST['update'];
-				$sql1="select * from create_class where id ='$update'";
-				$result1=mysqli_query($conn,$sql1);
-				$row1=mysqli_fetch_array($result1);
-				
-				?>
+                ?>
+              <div class="form-group">
+              
               <div class="row mt">
               </div>
                 <div class="row mt">
@@ -162,7 +165,7 @@ $row=mysqli_fetch_array($result);
                   <input type="text" class="form-control"name="room" value="<?php echo $row1['room'];?>" required>
                   </div>
                 </div>
-				<?php  ?>
+				
                 <div class="row mt">
                 <div class="text-center">
                 <button class="btn btn-primary" name="create_class">Update</button>
@@ -171,6 +174,7 @@ $row=mysqli_fetch_array($result);
               </div>
               </form>
             </div>
+			<?php } ?>
         </div>
         <!--/ row -->
       </section>

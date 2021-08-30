@@ -10,12 +10,13 @@ $flag=0;
 include('../conn.php');
 if(isset($_POST['create_class'])){
         $email=mysqli_real_escape_string($conn,$_POST['email']);
+        $name=mysqli_real_escape_string($conn,$_POST['name']);
         $cname=mysqli_real_escape_string($conn,$_POST['cname']);
         $subject=mysqli_real_escape_string($conn,$_POST['subject']);
         $section=mysqli_real_escape_string($conn,$_POST['section']);
         $room=mysqli_real_escape_string($conn,$_POST['room']);
         if(!empty($cname) || !empty($subject) || !empty($section) || !empty($room)){
-                $sql1="INSERT INTO `create_class`(`tea_name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$cname','$subject','$section','$room')";
+                $sql1="INSERT INTO `create_class`(`tea_name`,`name`, `class_name`, `subject`, `section`, `room`) VALUES ('$email','$cname','$subject','$section','$room')";
                 $result=mysqli_query($conn,$sql1);
                 if($result)
                     $flag=1;
@@ -156,6 +157,7 @@ if(isset($_POST['create_class'])){
                   <div class="col-md-6">
                   <input type="text" class="form-control"name="cname" required>
                   <input type="hidden" value="<?php echo $row['email'];?>" name="email">
+                  <input type="hidden" value="<?php echo $row['name'];?>" name="name">
                   </div>
                 </div>
                 <div class="row mt">
