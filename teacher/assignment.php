@@ -155,6 +155,7 @@
                 function getQuestion(){
                   const select = document.getElementById('numbers');
                   var value = select.options[select.selectedIndex].value;
+                  document.getElementById('getvalue').value = value;
                   for(let i=1; i<=value; i++){
                     document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b>Question: "+i+"/"+value+"</b></td><td><input class='form-control' type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>";
                   }
@@ -173,8 +174,14 @@
             </form>
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6">
-            <h4 class="title">Displaying scheduled quiz here</h4>
-            <div class="alert alert-info"><b>Heads up!</b> This alert needs your attention, but it's not super important.</div>
+            <h4 class="title">Displaying scheduled Assignment here</h4>
+            <!-- <div class="alert alert-info"><b>Heads up!</b> This alert needs your attention, but it's not super important.</div> -->
+            <div class="steps pn">
+                  <label for="op1">Assignment Subject Name: [dummy]</label>
+                  <label for="op2">For Section: [dummy]</label>
+                  <label for="op3">Number of Questions: [dummy]</label>
+                  <label for="op4">Assignment Due Date: [dummy]</label>
+            </div>
           </div>
         <!--/ row -->
       </section>

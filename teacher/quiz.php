@@ -181,7 +181,12 @@
 
         <div class="col-lg-6 col-md-6 col-sm-6">
             <h4 class="title">Displaying scheduled quiz here</h4>
-            <div class="alert alert-info"><b>Heads up!</b> This alert needs your attention, but it's not super important.</div>
+            <div class="steps pn">
+                  <label for="op1">Quiz Subject Name: [dummy]</label>
+                  <label for="op2">For Section: [dummy]</label>
+                  <label for="op3">Number of Questions: [dummy]</label>
+                  <label for="op4">Quiz Due Date: [dummy]</label>
+            </div>
           </div>
         <!--/ row -->
 
