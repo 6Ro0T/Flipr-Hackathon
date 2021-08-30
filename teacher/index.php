@@ -157,37 +157,15 @@ if(isset($_POST['delete'])){
               
               <h4><i class="text-center"></i><?php echo $row1['class_name'];?></h4>
               <h4><i class="text-center"></i><?php echo $row1['name'];?></h4>
-<<<<<<< HEAD
-              <!-- <table style="width:100px">
-              <tbody >
-              <tr>
-              <td><form action="view.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form></td>
-              <td><form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form></td>
-              <td><form action="index.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o text-danger" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form></td>
-=======
-              <h4><i class="text-center"></i><?php echo $row1['id'];?></h4>
-              
-              <table style="width:100px">
-              <tbody >
-              <tr>
-              <td><form action="view.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye"></i>View</button></form></td>
-              <td><form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='update' value="<?php echo $row1['tea_name'];?>"><i class="fa fa-pencil-square-o">Update</i></button></form></td>
-              <td><form action="index.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o text-danger"></i>Delete</button></form></td>
->>>>>>> c42218469e4c7caa416f9232a9ea7d82fe6bbd77
-              </tr>
-              </tbody>
-               </table> -->
-
-
                <div class="btn-group btn-group-justified">
                 <div class="btn-group">
-                  <form action="view.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
+                  <form action="view.php" method="POST"><button type="button" class="btn btn-success" name='View' value="<?php echo $row1['id'];?>"><i class="fa fa-eye" style="font-size: 20px;"><span class="label label-success">View</span></i></button></form>
                 </div>
                 <div class="btn-group">
-                  <form action="update.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
+                  <form action="update.php" method="POST"><button type="button" class="btn btn-warning" name='Update' value="<?php echo $row1['id'];?>"><i class="fa fa-pencil-square-o" style="font-size: 20px;"><span class="label label-warning">Update</span></i></button></form>
                 </div>
                 <div class="btn-group">
-                  <form action="index.php" method="POST"><button type="submit" class="btn btn-icon btn-sm" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o text-danger" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
+                  <form action="index.php" method="POST"><button type="button" class="btn btn-danger" name='delete' value="<?php echo $row1['id'];?>"><i class="fa fa-trash-o" style="font-size: 20px;"><span class="label label-danger">Delete</span></i></button></form>
                 </div>
               </div>
             </div>
