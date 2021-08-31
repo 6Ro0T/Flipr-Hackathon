@@ -10,9 +10,9 @@ $row=mysqli_fetch_array($result);
 $flag=0;
 if(isset($_POST['message'])){
     $cname=$_POST['clsname'];
-    echo $cname;
+   
     $message=mysqli_real_escape_string($conn,$_POST['message']);
-    echo $message;
+    
     $sql1="INSERT INTO `message`(`class_name`, `message`) VALUES ('$cname','$message')";
     $result=mysqli_query($conn,$sql1);
     if($result)
@@ -177,9 +177,10 @@ if(isset($_POST['message'])){
                         <?php } ?>
               </div>
             <div class="col-lg-4 col-md-6">
-              <button type="button" class="btn btn-primary " onclick="window.location.href='index.php'">Go Back</button></br>
-              <button type="button" class="btn btn-primary " name="assignment" value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='assignment.php'">Create Assignment:</button>
-              <button type="button" class="btn btn-primary " name="quiz"value=" <?php echo $row1['class_name'];?>" onclick="window.location.href='quiz.php'">Create Quiz: </button>
+              <button type="button" class="btn btn-primary " onclick="window.location.href='index.php'">Go Back</button></br></br>
+              
+              <form action="asg_sample.php" method="Post"><button type="submit" class="btn btn-primary " name="assignment" value=" <?php echo $row1['class_name'];?>">Create Assignment</button></form></br>
+              <form action="quiz.php" method="Post"><button type="submit" class="btn btn-primary " name="quiz"value=" <?php echo $row1['class_name'];?>">Create Quiz </button></form>
               <br>
               <?php
                 $count=0;

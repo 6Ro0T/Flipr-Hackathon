@@ -7,7 +7,9 @@ $result=mysqli_query($conn,$sql);
 $row=mysqli_fetch_array($result);
 ?>
 <?php
-if(isset($_POST['submit']))
+if(isset($_POST['submit'])){
+	
+}
 
 
 ?>
@@ -140,55 +142,56 @@ if(isset($_POST['submit']))
         <div class="row mt">
           <div class="col-lg-6 col-md-6 col-sm-6">
             <h1>ASSIGNMENTS</h1>
-            <form action="#" method="get">
-              <label class="text-right" >Choose Number of Questions:</label>
-              <select id="numbers">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option selected>5</option>
-              <option>6</option>
-              <option>7</option>
-              <option>8</option>
-              <option>9</option>
-              <option>10</option>
-              </select>
+            <form action="asg_sample.php" method="post">
+			
+              <label class="text-right" name="numb" >Choose Number of Questions:</label>
+             <select name="number"  required>
+                <option >Select</option>
+                <option value="1" >1</option>
+                <option value="2">2</option>
+				<option value="3" >3</option>
+                <option value="4">4</option>
+				<option value="5" >5</option>
+                <option value="6">6</option>
+				<option value="7" >7</option>
+                <option value="8">8</option>
+				<option value="9" >9</option>
+                <option value="10">10</option>
+                
+               </select> 
               <br><br>
+			  <button type="submit">Question</button>
+			  </form>
+			  <form method="Post" action="asg_sample.php">
               <?php
               if(isset($_POST['assignment'])){
               $name=$_POST['assignment'];
-              echo $name;
-              
-              ?>
-              <div class="btn-group btn-group-justified">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-theme" onclick="getQuestion()">Set Assignment Question Area</button>
-                </div>
-                <div class="btn-group">
-                  <button class="btn btn-theme04" onclick="clear()">Reset Assignment Question Area</button>
-                </div>
-              </div>  
+			  echo $name;
+			  }
+			  ?>
+			  <?php
+			  if(isset($_POST['number'])){
+				  $num=$_POST['number'];
+				  
+				  
+				  for($i=1;$i<=$num;$i++){
+				?>
+				<b value='questionnum[<?php echo $i;?>]'>Question:<?php echo $i;?></b>
+				<input class='form-control' type='text' name="question[<?php echo $i;?>]" placeholder='Enter question here' size=80><br>
+				<?php
+					
+				  }
+			  }
+			  
+			  ?>
+               
               <br>
               <div id="questions"></div>
             
-             <?php }?>
-              <script type="text/javascript">
-                function getQuestion(){
-                  const select = document.getElementById('numbers');
-                  var value = select.options[select.selectedIndex].value;
-                  for(let i=1; i<=value; i++){
-                    document.getElementById('questions').innerHTML+="</td></tr><tr><td valign=top><b value='question+i'>Question: "+i+"/"+value+"</b></td><td><input class='form-control' type='text' name='"+i+"question' placeholder='Enter question here' size=80><br>";
-                  }
-                }
-
-                function clear(){
-                  document.getElementById('questions').innerHTML = "";
-                }
-              </script>
-              <div class="col-md-5 offset 4">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch-fill" viewBox="0 0 16 16"><path d="M6.5 0a.5.5 0 0 0 0 1H7v1.07A7.001 7.001 0 0 0 8 16a7 7 0 0 0 5.29-11.584.531.531 0 0 0 .013-.012l.354-.354.353.354a.5.5 0 1 0 .707-.707l-1.414-1.415a.5.5 0 1 0-.707.707l.354.354-.354.354a.717.717 0 0 0-.012.012A6.973 6.973 0 0 0 9 2.071V1h.5a.5.5 0 0 0 0-1h-3zm2 5.6V9a.5.5 0 0 1-.5.5H4.5a.5.5 0 0 1 0-1h3V5.6a.5.5 0 1 1 1 0z"/>
-                </svg>
+             
+           
+              <div class="col-md-6 offset 4">
+               
                 <label>Select the Due Date: <input class="form-control" type="date" name="datetime"/></label>
               </div>
               <button type="submit" name="submit"class="btn btn-primary btn-lg btn-block">Post Assignment Questions</button>
